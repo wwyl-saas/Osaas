@@ -1,0 +1,122 @@
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">服务反馈</view>
+  </cu-custom>
+
+  <view class="cu-bar bg-white light solid-bottom">
+    <view class="action">
+      <button class="cu-btn round {{commentType==-1?'bg-mauve':'line-mauve'}} shadow sm margin-lr-xs"  bindtap="selectCommentType" data-target="-1">
+        全部
+        <view class="cu-tag badge bg-orange" wx:if="{{total}}">{{total}}</view>
+      </button>
+      <button class="cu-btn round {{commentType==0?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs"  bindtap="selectCommentType" data-target="0">
+        好评
+        <view class="cu-tag badge bg-orange" wx:if="{{praise}}">{{praise}}</view>
+      </button>
+      <button class="cu-btn round {{commentType==1?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs"  bindtap="selectCommentType" data-target="1">
+        中评
+        <view class="cu-tag badge bg-orange" wx:if="{{encourage}}">{{encourage}}</view>
+      </button>
+        <button class="cu-btn round {{commentType==2?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs"  bindtap="selectCommentType" data-target="2">
+        差评
+        <view class="cu-tag badge bg-orange" wx:if="{{criticism}}">{{criticism}}</view>
+      </button>
+    </view>
+    <view class="action">
+      <button class="cu-btn icon df line-white" bindtap="showModal" data-target="DrawerModalR">
+        <text class="cuIcon-filter text-mauve text-bold"></text>
+      </button>
+    </view>
+  </view>
+
+  <view class="cu-card dynamic">
+    <view class="cu-item shadow" wx:for="{{commentList}}" wx:key>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+          <view class="content flex-sub">
+            <view>{{item.customerName}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.createTime}}
+            </view>
+          </view>
+          <view class="text-right">
+            <text class="{{item.star1?'cuIcon-favorfill':'cuIcon-favor'}} text-yellow"></text>
+            <text class="{{item.star2?'cuIcon-favorfill':'cuIcon-favor'}}  text-yellow"></text>
+            <text class="{{item.star3?'cuIcon-favorfill':'cuIcon-favor'}}  text-yellow"></text>
+            <text class="{{item.star4?'cuIcon-favorfill':'cuIcon-favor'}}  text-yellow"></text>
+            <text class="{{item.star5?'cuIcon-favorfill':'cuIcon-favor'}}  text-yellow"></text>
+            <text class="margin-left-xs text-grey text-sm">{{item.gradeString}}分</text>
+          </view>
+        </view>
+      </view>
+      <view class="text-content">
+        {{item.remark}}
+      </view>
+      <view class="bg-white padding-sm">
+        <view class="grid col-3 grid-square">
+          <view class="bg-img" wx:for="{{item.pictureList}}" wx:key style="background-image:url({{item}});"></view>
+        </view>
+      </view>
+      <view class="text-gray text-sm text-right padding-sm">
+        <text class="cuIcon-appreciatefill margin-lr-xs"></text> 25
+      </view>
+    </view>
+      <view wx:if="{{loaded && commentList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+      <view wx:if="{{loaded && commentList.length>0 && pageIndex>=totalPage}}" class="iconfont iconmeiyougengduo nomore"></view>
+  </view>
+
+</scroll-view>
+
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        评价时间
+      </view>
+    </view>
+    <view class="select-group justify-center bg-white">
+      <picker mode="date" value="{{createDateStart}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindStartDateChange">
+        <button class="cu-btn round line-mauve shadow sm" wx:if="{{!createDateStart}}">
+          <text class="text-mauve">起始日期</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+        <button class="cu-btn round line-mauve shadow sm" wx:else>
+          <text class="text-mauve">{{createDateStart}}</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+      </picker>
+      <text class="margin-lr-xs">-</text>
+      <picker mode="date" value="{{createDateEnd}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindEndDateChange">
+        <button class="cu-btn round line-mauve shadow sm" wx:if="{{!createDateEnd}}">
+          <text class="text-mauve">结束日期</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+        <button class="cu-btn round line-mauve shadow sm" wx:else>
+          <text class="text-mauve">{{createDateEnd}}</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+      </picker>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        是否有图
+      </view>
+    </view>
+    <view class="bg-white grid col-2 padding-xs">
+      <view class="padding-xs">
+        <button class="cu-btn sm block {{1==havePicture?'bg-mauve':'line-mauve'}}" bindtap="haveCommentPicture" data-value="1"> 有图</button>
+      </view>
+      <view class="padding-xs">
+        <button class="cu-btn sm block {{0==havePicture?'bg-mauve':'line-mauve'}}" bindtap="haveCommentPicture" data-value="0">无图</button>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-mauve sm" bindtap="cleanCondition">清除</button>
+        <button class="cu-btn bg-mauve margin-left sm" bindtap="submitCondition">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.MerchantShopMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.MerchantShop" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="enabled" property="enabled" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, name, telephone, address, picture, longitude, latitude, enabled, 
+    create_time, update_time
+  </sql>
+
+  <select id="getShopsWithRole" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    t.id, t.merchant_id, t.name, t.telephone, t.address, t.picture, t.longitude, t.latitude, t.enabled,
+    t.create_time, t.update_time
+    from t_merchant_shop t INNER JOIN t_merchant_user_role t1 on t.id = t1.shop_id
+    where t1.merchant_id = #{merchantId,jdbcType=BIGINT}
+    and t1.user_id = #{userId,jdbcType=BIGINT}
+  </select>
+
+
+  <select id="getIdAndNameByGoodsId" resultType="java.util.Map">
+    select t.id,t.name from t_merchant_shop t where t.id in(
+       select shop_id from t_goods_shop  where goods_id=#{
+       goodsId,jdbcType=BIGINT})
+  </select>
+
+  <select id="getshopNamesByIds" resultType="java.util.Map"  >
+  select t.id,t.name from t_merchant_shop t
+  WHERE t.id IN
+  <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+    #{id}
+  </foreach>
+  </select>
+
+</mapper>

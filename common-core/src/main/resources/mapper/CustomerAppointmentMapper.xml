@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.CustomerAppointmentMapper">
+    <resultMap id="BaseResultMap" type="com.fate.common.entity.CustomerAppointment">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="merchant_id" property="merchantId" jdbcType="BIGINT"/>
+        <result column="merchant_app_id" property="merchantAppId" jdbcType="BIGINT"/>
+        <result column="shop_id" property="shopId" jdbcType="BIGINT"/>
+        <result column="shop_name" property="shopName" jdbcType="VARCHAR"/>
+        <result column="customer_id" property="customerId" jdbcType="BIGINT"/>
+        <result column="arrive_date" property="arriveDate" jdbcType="DATE"/>
+        <result column="arrive_time" property="arriveTime" jdbcType="TIME"/>
+        <result column="appoint_name" property="appointName" jdbcType="VARCHAR"/>
+        <result column="appoint_mobile" property="appointMobile" jdbcType="VARCHAR"/>
+        <result column="merchant_user_id" property="merchantUserId" jdbcType="BIGINT"/>
+        <result column="goods_id" property="goodsId" jdbcType="BIGINT"/>
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, merchant_id, merchant_app_id, shop_id, shop_name, customer_id, arrive_date, arrive_time, 
+    appoint_name, appoint_mobile, merchant_user_id, goods_id, goods_name, remark, status, 
+    create_time, update_time
+  </sql>
+
+
+    <select id="getAppointmentCount" resultType="com.fate.common.model.StatisticModel" parameterType="map">
+        SELECT DISTINCT
+        shop_id as shopId,
+        merchant_user_id as merchantId,
+        COUNT(1) as dataValue
+        FROM
+        t_customer_appointment
+        where
+        arrive_date = #{date,jdbcType=DATE}
+        and merchant_id =#{merchantId,jdbcType=BIGINT}
+        and status &lt;&gt; 2
+    </select>
+
+
+
+    <select id="getAppointmentDates" resultType="java.lang.String" parameterType="map">
+        SELECT DISTINCT
+        arrive_date
+        FROM
+        t_customer_appointment
+        <where>
+            <if test="shopId!=null">
+                AND shop_id = #{shopId,jdbcType=BIGINT}
+            </if>
+            <if test="userId!=null">
+                AND merchant_user_id = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="arriveDateStart!=null and arriveDateEnd!=null">
+                AND arrive_date BETWEEN #{arriveDateStart,jdbcType=DATE} AND #{arriveDateEnd,jdbcType=DATE}
+            </if>
+            <if test="createDateStart!=null and createDateEnd!=null">
+                AND create_time BETWEEN #{createDateStart,jdbcType=TIMESTAMP} AND #{createDateEnd,jdbcType=TIMESTAMP}
+            </if>
+            <if test="appointmentPhone!=null">
+                AND appoint_mobile = #{appointmentPhone,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+</mapper>

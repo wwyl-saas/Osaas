@@ -1,0 +1,59 @@
+ <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">{{titleName}}</view>
+  </cu-custom>
+
+<view class="index_container solid-bottom">
+  <tab-cycle id="tab-cycle-call-statistics" cur_tab_id="{{cycleId}}" bindtabclick="onClickTabCycle" />
+  <calendar dateType="{{'day'}}" wx:if="{{cycleId =='day'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'weeks'}}" wx:if="{{cycleId =='weeks'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'month'}}" wx:if="{{cycleId =='month'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'quarter'}}" wx:if="{{cycleId ==='quarter'}}" bindonCallbackDate="onCallbackDate" />
+</view>
+
+
+<view class="flex justify-center">
+  <view class="cu-capsule radius margin">
+    <view class="cu-tag text-lg padding {{tabCur=='list'?'bg-mauve':'line-mauve'}}" bindtap="changeTap" data-target="list">
+      <text class="cuIcon-list padding-right-sm"></text>数据明细
+    </view>
+    <view class="cu-tag text-lg padding {{tabCur=='chart'?'bg-mauve':'line-mauve'}}" bindtap="changeTap" data-target="chart">
+      <text class="cuIcon-pic padding-right-sm"></text>变化趋势
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-list menu card-menu" wx:if="{{tabCur=='list' && cycleId=='day'}}">
+  <navigator class="cu-item arrow" wx:for="{{chargeList}}" wx:key hover-class="none" url="/pages/charge/detail?chargeId={{item.id}}&source=data" open-type="navigate">
+    <view class="cu-avatar round" style="background-image:url({{item.customerAvatar}});">
+    </view>
+    <view class="content margin-left-sm">
+      <view class="">
+        <text class="text-sm text-black">{{item.customerName}}</text>
+      </view>
+      <view class="text-gray flex">
+        <text class="text-sm">状态：{{item.chargeStatus}}</text>
+      </view>
+    </view>
+        <view>
+       <text class="text-sm">充{{item.amount}}元赠{{item.giftAmount}}元</text>
+    </view>
+  </navigator>
+   <view wx:if="{{chargeList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+</view>
+
+<view class="cu-list menu card-menu" wx: wx:elif="{{tabCur=='list' && cycleId!='day'}}">
+  <view class="cu-item"  wx:for="{{dataList}}" wx:key >
+    <view class="content">
+      <text class="text-grey">{{item.dataIndex}}</text>
+    </view>
+    <view class="action">
+      <text class="text-grey">{{item.dataValue}}</text>
+    </view>
+  </view>
+ <view wx:if="{{dataList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+</view>
+
+<ec-canvas wx:else id="mychart" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+

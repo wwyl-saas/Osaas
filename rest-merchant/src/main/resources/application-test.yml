@@ -1,0 +1,57 @@
+server:
+  port: 8081
+
+#数据源
+sharding:
+  jdbc:
+    one:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.0.0.17:3306/fate?useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false
+      username: xxxz
+      password: xxxxxxx
+      connectionTestQuery: select 1
+
+spring:
+  redis:
+    host: xx.x.x.x
+    port: 6379
+    password: xxxxxxxxxxxxxxxx
+    timeout: 3000ms
+    database: 0
+  rabbitmq:
+    addresses: xx.x.x.x:5672
+    username: xxxxxxxxxxx
+    password: xxxxxxxxxxxxxxxxxx
+    virtual-host: /
+    connection-timeout: 15000s
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 2
+        max-concurrency: 12
+    publisher-confirms: true
+    publisher-returns: true #return 的时候代表消息不可达，设置 broker 不自动删除该消息，
+    template:
+      mandatory: true
+#商户端小程序/服务号/支付配置
+wx:
+  applet:
+    appId: 
+    secret: 
+    token:
+    aesKey:
+    msgDataFormat:
+  public:
+    appId: 
+    secret: 
+    token: 
+    aesKey: 
+
+
+cdn:
+  domain: http://cdn.wanwuyoulian.com/
+feign:
+  customer:
+    ips: xx.xx.xx.x
+    port: 8080
+    domain: https://test-c.wanwuyoulian.com

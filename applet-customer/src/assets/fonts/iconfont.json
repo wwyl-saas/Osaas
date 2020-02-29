@@ -1,0 +1,800 @@
+{
+  "id": "1404060",
+  "name": "优联造型",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "131760",
+      "name": "理疗保健",
+      "font_class": "liliaobaojian",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "142633",
+      "name": "折扣",
+      "font_class": "zhekou",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "448018",
+      "name": "无内容",
+      "font_class": "ttpodicon",
+      "unicode": "e72c",
+      "unicode_decimal": 59180
+    },
+    {
+      "icon_id": "557632",
+      "name": "没有更多",
+      "font_class": "meiyougengduo",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "588585",
+      "name": "已支付",
+      "font_class": "yizhifu",
+      "unicode": "e711",
+      "unicode_decimal": 59153
+    },
+    {
+      "icon_id": "604761",
+      "name": "到店付款",
+      "font_class": "daodianfukuan",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "605405",
+      "name": "理发师",
+      "font_class": "zhuye",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "683889",
+      "name": "美容",
+      "font_class": "meirong",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "807963",
+      "name": "待评价",
+      "font_class": "daipingjia",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "875897",
+      "name": "按摩",
+      "font_class": "anmo",
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    },
+    {
+      "icon_id": "892627",
+      "name": "美容院",
+      "font_class": "beaut",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "902604",
+      "name": "美睫_hl",
+      "font_class": "meijiehl",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "902606",
+      "name": "美容_hl",
+      "font_class": "meironghl",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "973741",
+      "name": "美容美甲",
+      "font_class": "meirongmeijia",
+      "unicode": "e75d",
+      "unicode_decimal": 59229
+    },
+    {
+      "icon_id": "981697",
+      "name": "支付",
+      "font_class": "givepay",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "1000641",
+      "name": "条形码",
+      "font_class": "tiaoxingma",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "1060526",
+      "name": "美睫mb",
+      "font_class": "meijiemb",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1089939",
+      "name": "折扣",
+      "font_class": "zhekou1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1194525",
+      "name": "养身滋补",
+      "font_class": "yangshenzibu",
+      "unicode": "e896",
+      "unicode_decimal": 59542
+    },
+    {
+      "icon_id": "1239830",
+      "name": "按摩",
+      "font_class": "anmo1",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "1291965",
+      "name": "ys快捷美容",
+      "font_class": "yskuaijiemeirong",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "1372081",
+      "name": "卡券",
+      "font_class": "qiaquan",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "1446666",
+      "name": "美甲",
+      "font_class": "meijia",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "1543909",
+      "name": "美发-染发",
+      "font_class": "meifa-ranfa",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "1604435",
+      "name": "造型盘发",
+      "font_class": "zaoxingpanfa",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "1703144",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1856632",
+      "name": "无内容",
+      "font_class": "wuneirong",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "1944060",
+      "name": "预约",
+      "font_class": "yuyue",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "2017340",
+      "name": "暂无数据",
+      "font_class": "zanwushuju",
+      "unicode": "e75a",
+      "unicode_decimal": 59226
+    },
+    {
+      "icon_id": "2045239",
+      "name": "优惠券",
+      "font_class": "youhuiquan1",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "2418406",
+      "name": "预约",
+      "font_class": "weibiaoti-",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "2437850",
+      "name": "已取消",
+      "font_class": "yiquxiao",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "2452517",
+      "name": "导航",
+      "font_class": "daohang",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "2598006",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "2821517",
+      "name": "客服",
+      "font_class": "kefu1",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "2979243",
+      "name": "没有更多内容啦",
+      "font_class": "meiyougengduoneirongla",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "3053839",
+      "name": "账单",
+      "font_class": "zhangdan",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "3203148",
+      "name": "待支付订单",
+      "font_class": "daizhifudingdan",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "3338191",
+      "name": "条形码",
+      "font_class": "tiaoxingma1",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "3680518",
+      "name": "没有内容",
+      "font_class": "meiyouxiangguanshuju",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "3888867",
+      "name": "无内容",
+      "font_class": "wuneirong1",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "3922113",
+      "name": "电话",
+      "font_class": "yidongduanicon-",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "4187224",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "4242532",
+      "name": "客服",
+      "font_class": "kefu2",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "4267178",
+      "name": "丽人美发",
+      "font_class": "lirenmeifa",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "4490303",
+      "name": "条形码",
+      "font_class": "tiaoxingma2",
+      "unicode": "e802",
+      "unicode_decimal": 59394
+    },
+    {
+      "icon_id": "4618093",
+      "name": "美容",
+      "font_class": "huabanfuben",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "4618095",
+      "name": "美睫",
+      "font_class": "huabanfuben1",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "4618096",
+      "name": "美发",
+      "font_class": "huabanfuben2",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "4692207",
+      "name": "暂无数据",
+      "font_class": "zanwushuju1",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "4692243",
+      "name": "电话 (2)",
+      "font_class": "dianhua",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "4721007",
+      "name": "按摩",
+      "font_class": "anmo2",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4756941",
+      "name": "美容师",
+      "font_class": "meirongshi",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "4875140",
+      "name": "待评价",
+      "font_class": "UnComment",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "5109508",
+      "name": "时间",
+      "font_class": "shijian1",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "5204556",
+      "name": "美甲盘",
+      "font_class": "icon-test",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "5211609",
+      "name": "染发",
+      "font_class": "tubiao-",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5295461",
+      "name": "酒店设施-美容美发",
+      "font_class": "jiudiansheshi-meirongmeifa",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "5598227",
+      "name": "美容美发",
+      "font_class": "meirongmeifa",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "5649490",
+      "name": "分享",
+      "font_class": "fenxiang",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "5675592",
+      "name": "预约",
+      "font_class": "yuyue1",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "5959427",
+      "name": "机构_无数据",
+      "font_class": "jigou_wushuju",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "6041144",
+      "name": "支撑文件- 无内容",
+      "font_class": "zhichengwenjian-wuneirong",
+      "unicode": "e7f1",
+      "unicode_decimal": 59377
+    },
+    {
+      "icon_id": "6045588",
+      "name": "美容按摩",
+      "font_class": "meironganmo",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "6175438",
+      "name": "暂无数据",
+      "font_class": "zanwushuju2",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "6223157",
+      "name": "美甲",
+      "font_class": "meijia1",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "6272510",
+      "name": "染发",
+      "font_class": "ranfa",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "6272512",
+      "name": "烫发",
+      "font_class": "tangfa",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "6272516",
+      "name": "造型",
+      "font_class": "zaoxing",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "6623818",
+      "name": "无数据占位图",
+      "font_class": "wushujuzhanweitu-",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "6665510",
+      "name": "导航",
+      "font_class": "daohang1",
+      "unicode": "e771",
+      "unicode_decimal": 59249
+    },
+    {
+      "icon_id": "6675151",
+      "name": "切换",
+      "font_class": "qiehuan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "6761502",
+      "name": "位置",
+      "font_class": "weizhi",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "7016644",
+      "name": "减",
+      "font_class": "jian",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "7310178",
+      "name": "位置",
+      "font_class": "weizhi1",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "7340028",
+      "name": "电话",
+      "font_class": "dianhua1",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "7340971",
+      "name": "已完成",
+      "font_class": "yiwancheng",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "7429090",
+      "name": "待支付",
+      "font_class": "daizhifu",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "7453431",
+      "name": "主页",
+      "font_class": "icon_zhuye",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "7461040",
+      "name": "无内容",
+      "font_class": "wuneirong2",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "7565365",
+      "name": "无内容图标icon2",
+      "font_class": "wuneirongtubiaoicon",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "7566864",
+      "name": "搜索无内容",
+      "font_class": "sousuowuneirong",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "7670543",
+      "name": "主页",
+      "font_class": "_zhuye",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "7796196",
+      "name": "电 话",
+      "font_class": "dianhua2",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "8261900",
+      "name": "分享",
+      "font_class": "fenxiang1",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "8361848",
+      "name": "支付",
+      "font_class": "zhifu",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "8362076",
+      "name": "主页 ",
+      "font_class": "yemian",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "8376603",
+      "name": "减",
+      "font_class": "jian1",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "8416469",
+      "name": "折扣",
+      "font_class": "zhekou2",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "8433778",
+      "name": "待支付",
+      "font_class": "daizhifu1",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "8516216",
+      "name": "无数据",
+      "font_class": "wushuju",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "8603153",
+      "name": "无内容 (1)",
+      "font_class": "wuneirong3",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "8630748",
+      "name": "当前无内容",
+      "font_class": "zu",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "8678178",
+      "name": "位置",
+      "font_class": "weizhi2",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "8724300",
+      "name": "待支付订单",
+      "font_class": "daizhifudingdan1",
+      "unicode": "e8c7",
+      "unicode_decimal": 59591
+    },
+    {
+      "icon_id": "8847210",
+      "name": "无数据",
+      "font_class": "wushuju1",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "8899096",
+      "name": "客服",
+      "font_class": "kefu3",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "8899698",
+      "name": "电 话",
+      "font_class": "dianhua3",
+      "unicode": "e745",
+      "unicode_decimal": 59205
+    },
+    {
+      "icon_id": "8990506",
+      "name": "美容化妆",
+      "font_class": "meironghuazhuang",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "9024334",
+      "name": "暂无数据",
+      "font_class": "zanwushuju3",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "9214973",
+      "name": "爱心_line",
+      "font_class": "aixin",
+      "unicode": "e872",
+      "unicode_decimal": 59506
+    },
+    {
+      "icon_id": "9459087",
+      "name": "行动-行动报告无数据",
+      "font_class": "hangdong-hangdongbaogaowushuju",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
+      "icon_id": "9762540",
+      "name": "暂无数据_灰色",
+      "font_class": "zanwushuju_huise",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "9841334",
+      "name": "空页面-无内容",
+      "font_class": "kongyemian-wuneirong",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "9948778",
+      "name": "无内容",
+      "font_class": "wuneirong4",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "10130833",
+      "name": "可回收-金属类",
+      "font_class": "kehuishou-jinshulei",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "10211913",
+      "name": "暂无内容",
+      "font_class": "zanwuneirong",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "10213220",
+      "name": "暂无数据",
+      "font_class": "zanwushuju4",
+      "unicode": "e73b",
+      "unicode_decimal": 59195
+    },
+    {
+      "icon_id": "10248976",
+      "name": "美发",
+      "font_class": "meifa",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "10302908",
+      "name": "暂无内容",
+      "font_class": "zanwuneirong1",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "10457180",
+      "name": "联系",
+      "font_class": "lianxi",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "10683174",
+      "name": "无内容",
+      "font_class": "wuneirong5",
+      "unicode": "ec43",
+      "unicode_decimal": 60483
+    },
+    {
+      "icon_id": "10752096",
+      "name": "暂没数据",
+      "font_class": "zanmeishuju",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    }
+  ]
+}

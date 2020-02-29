@@ -1,0 +1,32 @@
+.serverProject{
+    background: #F7F9FB;
+    padding-top: 88px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    .noData{
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 26px;
+        font-family:PingFang-SC-Medium;
+        color: #666;
+    }
+    .at-tabs {
+        font-family:PingFang-SC-Bold;
+        overflow-y: auto;
+        height: auto;
+    }
+    .at-tabs__header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    .at-tabs__item--active{
+        color: #9D9063;
+    }
+    .at-tabs__item-underline{
+        background-color: #9D9063;
+    }
+}

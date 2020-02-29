@@ -1,0 +1,16 @@
+/* pages/member/list.wxss */
+
+.nodata{
+  font-size: 200rpx;
+  text-align:center;
+  color: rgba(154, 174, 187, 0.671);
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+}
+
+.nomore{
+  font-size: 50rpx;
+  text-align:center;
+  color: rgba(109, 110, 110, 0.856);
+  padding-top: 20rpx;
+}

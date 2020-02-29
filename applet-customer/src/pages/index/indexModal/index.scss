@@ -1,0 +1,93 @@
+.index-modal{
+    width:657px;
+    .model-mask{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 90;
+        background: #000;
+        opacity: 0.6;
+    }
+    .modal-msg{
+        font-family:PingFang-SC-Medium;
+        font-weight:500;
+        font-size:28px;
+        color: #242424;
+        position: fixed;
+        top: 240px;
+        left: 40px;
+        right: 40px;
+        z-index: 99;
+        background: #fff;
+        border-radius: 26px;
+        .msg-t{
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+            top: -60px;
+            display: flex;
+            align-items: center;
+            .t-box{
+                width: 100px;
+                height: 100px;
+                margin: auto;
+                border-radius: 50%;
+                background: #C9C0AB;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .t-img{
+                    width: 50px;
+                    height: 50px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+            }
+        }
+        .msg-m{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            .name{
+                position: relative;
+                top: -40px;
+            }
+            .code{
+                width: 580px;
+                height: 115px;
+                margin: auto;
+                position: relative;
+                top: -10px;
+                .code-img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .msg-btn{
+        font-size:32px;
+        width: 100%;
+        height: 87px;
+        line-height: 87px;
+        margin-top: 50px;
+        border-top: 1PX solid #E1E1E1;
+        display: flex;
+        justify-content: space-between;
+        .cancel{
+            width: 50%;
+            text-align: center;
+        }
+        .newBtn{
+            color:rgba(157,144,99,1);
+            width: 50%;
+            border-left: 1PX solid #E1E1E1;
+            text-align: center;
+        }
+    }
+}

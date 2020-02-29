@@ -1,0 +1,26 @@
+.loading{
+    margin-top: 200px;
+    width: 750px;
+    height: 200px;
+    text-align: center;
+    .authorizationRender{
+        font-family:PingFang-SC-Bold;
+        font-weight:bold;
+        color:rgba(255,255,255,1);
+        .logo{
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        .tip{
+            display: inline-block;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .btn{
+            font-size:30px;
+            width: 80%;
+        }
+    }
+}

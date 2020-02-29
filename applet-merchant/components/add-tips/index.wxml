@@ -1,0 +1,29 @@
+<view class="box" wx:if="{{SHOW_TOP}}"  style="top:{{CustomerTop}}px">
+  <view class='arrow'></view>
+  <view class='body' bindtap='showModal'>
+    <text>{{text}}</text>
+  </view>
+</view>
+
+<!-- modal -->
+<view class='modal' wx:if="{{SHOW_MODAL}}" style="top:{{CustomBar}}px">
+  <view >
+    <text>1. 点击微信椭圆按钮 </text>
+    <image src='http://cdn.wanwuyoulian.com/fav-1.png' class="img-1"></image>
+  </view>
+  <view>
+    <text>2. 点击「添加到我的小程序」</text>
+    <image src='http://cdn.wanwuyoulian.com/fav-2.png' class="img-2"></image>
+  </view>
+  <view>
+    <text>3. 微信首页下拉，快速进入小程序</text>
+    <image src='http://cdn.wanwuyoulian.com/fav-3.png' class="img-3"></image>
+  </view>
+
+  <!-- 知道了 -->
+  <view class='ok-btn' hover-class='btn-hover' bindtap='okHandler'>
+    <view>
+      <text>我知道了</text>
+    </view>
+  </view>
+</view>

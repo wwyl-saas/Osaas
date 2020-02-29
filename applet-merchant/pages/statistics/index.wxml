@@ -1,0 +1,36 @@
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">统计分析</view>
+  </cu-custom>
+
+  <view class='nav-list margin-top text-white'>
+    <view class="nav-li bg-img shadow-blur" style="background-image:url(http://cdn.wanwuyoulian.com/statistic11.jpg)" bindtap="toChild" data-url="customer" >
+      <view class="nav-title">用户画像</view>
+      <view class="nav-name">user</view>
+      <text class='cuIcon-profilefill'></text>
+    </view>
+    <view class="nav-li bg-img shadow-blur" style="background-image:url(http://cdn.wanwuyoulian.com/statistic2.jpg)" bindtap="toChild" data-url="member" >
+      <view class="nav-title">会员转化</view>
+      <view class="nav-name">member</view>
+      <text class='cuIcon-filter'></text>
+    </view>
+    <view class="nav-li bg-img shadow-blur" style="background-image:url(http://cdn.wanwuyoulian.com/statistic7.jpg)" bindtap="toChild" data-url="balance" >
+      <view class="nav-title">储值状况</view>
+      <view class="nav-name">store</view>
+      <text class='cuIcon-choicenessfill'></text>
+    </view>
+    <view class="nav-li bg-img shadow-blur" style="background-image:url(http://cdn.wanwuyoulian.com/statistic8.jpg)" bindtap="toChild" data-url="consume" >
+      <view class="nav-title">消费分析</view>
+      <view class="nav-name">consume</view>
+      <text class='cuIcon-sponsorfill'></text>
+    </view>
+    <view class="nav-li bg-blue shadow-blur" >
+      <view class="nav-title">期待更多</view>
+      <view class="nav-name">more</view>
+      <text class='cuIcon-more'></text>
+    </view>
+  </view>
+
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

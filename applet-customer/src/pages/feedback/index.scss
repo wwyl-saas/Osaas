@@ -1,0 +1,35 @@
+.feedback{
+    background: #f7f9fb;
+    padding: 20px 10px;
+    min-height: 100vh;
+    font-size:26px;
+    .ipt{
+        padding: 15px;
+        background: #fff;
+        .ipt-area{
+            font-size:26px;
+        }
+    }
+    .footer{
+        margin-top: 30px;
+        padding-bottom: 100px;
+        background: #f7f9fb;
+        .at-checkbox{
+            background: #f7f9fb;
+        }
+        .footer-checkbox{
+            font-size:26px;
+        }
+        .submit{
+            width:682px;
+            height:78px;
+            line-height: 78px;
+            background:rgba(157,144,99,1);
+            border-radius:39px;
+            margin: 20px auto;
+            font-size:32px;
+            font-family:PingFang-SC-Medium;
+            color:rgba(255,255,255,1);
+        }
+    }
+}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.CustomerConsumeMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.CustomerConsume" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="merchant_app_id" property="merchantAppId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="consume_type" property="consumeType" jdbcType="TINYINT" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, merchant_app_id, shop_id, merchant_user_id,customer_id, order_id, description, consume_type,
+    amount, create_time
+  </sql>
+  <select id="getFactConsumeAmount" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select 
+     COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and consume_type <![CDATA[ <> ]]> 0
+  </select>
+
+  <select id="getStoreConsumeAmount" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and consume_type = 0
+  </select>
+
+
+  <select id="getFactConsumeAmountByOrderIds" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where order_id in
+    <foreach collection="orderIds" item="id" open="(" separator="," close=")">
+      #{id,jdbcType=BIGINT}
+    </foreach>
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and consume_type <![CDATA[ <> ]]> 0
+  </select>
+
+
+
+  <select id="getStoreConsumeAmountByOrderIds" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where order_id in
+    <foreach collection="orderIds" item="id" open="(" separator="," close=")">
+      #{id,jdbcType=BIGINT}
+    </foreach>
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and consume_type = 0
+  </select>
+
+
+  <select id="getOrderIdsBy" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select
+    order_id
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="consumeType != null">
+      and consume_type = #{consumeType,jdbcType=TINYINT}
+    </if>
+  </select>
+
+
+  <select id="getConsumeAmountByCustomerId" resultType="java.math.BigDecimal" parameterType="java.lang.Long" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where
+    customer_id = #{customerId,jdbcType=BIGINT}
+  </select>
+
+
+  <select id="getConsumeAmount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+    shop_id as shopId,
+    merchant_user_id as merchantUserId,
+    COALESCE(SUM(amount),0) as dataValue
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    <if test="consumeType != null">
+      and consume_type = #{consumeType,jdbcType=TINYINT}
+    </if>
+  </select>
+
+
+
+  <select id="getTodayFactConsumeAmount" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null">
+      and merchant_user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    and consume_type <![CDATA[ <> ]]> 0
+  </select>
+
+  <select id="getTodayStoreConsumeAmount" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_consume_
+    where create_time between  #{startTime,jdbcType=TIMESTAMP} and  #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null">
+      and merchant_user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    and consume_type = 0
+  </select>
+
+</mapper>

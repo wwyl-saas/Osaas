@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.Customer" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="wx_unoinid" property="wxUnoinid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="gender" property="gender" jdbcType="TINYINT" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, mobile, wx_unoinid, name, nickname, city_id, gender, avatar,birthday, last_login_time,
+    create_time, update_time,source
+  </sql>
+
+  <select id="getPageByCustomer" resultType="com.fate.common.entity.Customer">
+    select
+    t.id, t.merchant_id, t.mobile, t.wx_unoinid, t.name, t.nickname, t.city_id, t.gender, t.avatar,t.birthday, t.last_login_time,t.source,
+    t.create_time, t.update_time,t1.member_level
+    from t_customer t left join  t_customer_account t1 on t.id=t1.customer_id and t.merchant_id=t1.merchant_id
+    <where>
+      <if test="customer!=null">
+        <if test="customer.merchantId!=null">
+          and t.merchant_id=#{customer.merchantId,jdbcType=BIGINT}
+        </if>
+        <if test="customer.mobile!=null">
+        and t.mobile=#{customer.mobile,jdbcType=VARCHAR}
+      </if>
+        <if test="customer.name!=null">
+          and t.name like CONCAT('%',#{customer.name,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="customer.memberLevel!=null">
+          and t1.member_level = #{customer.memberLevel,jdbcType=TINYINT}
+        </if>
+        <if test="customer.source!=null">
+          and t.source = #{customer.source,jdbcType=TINYINT}
+        </if>
+      </if>
+    </where>
+    order by t.create_time desc
+  </select>
+
+  <select id="getPageByMobile" resultType="com.fate.common.entity.Customer">
+    select
+    t.id, t.merchant_id, t.mobile, t.wx_unoinid, t.name, t.nickname, t.city_id, t.gender, t.avatar,t.birthday, t.last_login_time,t.source,
+    t.create_time, t.update_time,t1.member_level,t1.consume_score,t1.balance
+    from t_customer t left join  t_customer_account t1 on t.id=t1.customer_id and t.merchant_id=t1.merchant_id
+    <where>
+        <if test="mobile!=null">
+          and t.mobile=#{mobile,jdbcType=VARCHAR}
+        </if>
+    </where>
+    order by t.create_time desc
+  </select>
+
+
+  <select id="getCustmerNamesByIds" resultType="java.util.Map"  >
+    select t.id,t.name from t_customer t
+    WHERE id IN
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+
+</mapper>

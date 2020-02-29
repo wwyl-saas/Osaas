@@ -1,0 +1,196 @@
+.personalCenter{
+    background: #F7F9FB;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .loginModel{
+        color:rgba(255,255,255,0.8);
+        text-align: center;
+        .model {
+          width: 100%;
+          .modelHeader {
+            color: #333;
+            font-size: 32px;
+          }
+          .modelContent {
+            .logo {
+              width: 120px;
+              height: 120px;
+            }
+            .tip {
+              display: inline-block;
+              font-size: 24px;
+              margin-bottom: 20px;
+              color: #333;
+            }
+          }
+          .modelAction {
+            .button {
+              font-size: 26px;
+            }
+          }
+        }
+    }
+    .info-box{
+        width:750px;
+        height:425px;
+        padding: 70px 50px;
+        box-sizing: border-box;
+        position: relative;
+        background:linear-gradient(-36deg,rgba(206,197,179,1),rgb(170, 158, 133),rgb(133, 124, 93));
+        .info{
+            display: flex;
+            justify-content: space-between;
+            .left{
+                display: flex;
+                align-items: center;
+                .img{
+                    width: 120px;
+                    height:120px;
+                    border-radius:50%;
+                    background-color: rgb(206, 204, 186);
+                    padding-top: 3px
+                }
+                .name{
+                    margin-left: 28px;
+                    font-size:30px;
+                    color:rgba(255,255,255,1);
+                    border: none;
+                }
+            }
+            .right{
+                justify-content: start;
+                width: 30%;
+                text-align: center;
+                .r-child{
+                    padding: 10px 1px;
+                    display: flex;
+                    justify-content: center;
+                    .top{
+                        margin-left: 15px;
+                        font-size:24px;
+                        color:rgb(252, 252, 249);
+                    }
+                    .bottom{
+                        font-size:24px;
+                        color:rgb(82, 72, 55);
+                    }
+                }
+            }
+        }
+        .vip{
+            width: 483px;
+            height: 145px;
+            padding: 25px 30px;
+            box-sizing: border-box;
+            font-size: 28px;
+            color: rgba(255,255,255,1);
+            background: #806b23;
+            border-radius:20px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 133px;
+            bottom: -70px;
+            box-shadow: 1px 0 5px rgb(48, 44, 42);
+            &_pop{
+              animation:mymove 0.5s ease forwards;
+              -webkit-animation:mymove 0.5s ease forwards; /*Safari and Chrome*/
+            }
+            @keyframes mymove
+            {
+              from {bottom: -70px;}
+              to {bottom: 21px;}
+            }
+
+            @-webkit-keyframes mymove /*Safari and Chrome*/
+            {
+              from {bottom: -70px;}
+              to {bottom: 21px;}
+            }
+        }
+    }
+    .statusOrder{
+        width:688px;
+        height:152px;
+        background:rgba(255,255,255,1);
+        box-shadow:1px 0px 5px rgba(158, 158, 157, 0.98);
+        border-radius:10px;
+        position: absolute;
+        top: 349px;
+        left: 31px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .statu-item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .icon{
+                width: 50px;
+                height: 50px;
+                margin: 0 auto 10px;
+            }
+            .name{
+                font-size:28px;
+                color:rgb(143, 140, 119);
+            }
+        }
+    }
+    .per-pro{
+        margin-bottom: 21px;
+        .m-item{
+            width:750px;
+            height: 100px;
+            line-height: 100px;
+            padding: 0 28px;
+            box-sizing: border-box;
+            background:rgba(255,255,255,1);
+            border: none;
+            position: relative;
+            box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+            display: flex;
+            align-items: center;
+            .icon-box{
+                width:60px;
+                height:60px;
+                border-radius:50%;
+                margin-right: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .icon{
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+            .box0{
+                background: #60CF8B;
+            }
+            .box1{
+                background: #FE6E66;
+            }
+            .box2{
+                background: #FDAE25;
+            }
+            .box3{
+                background: #ABA281;
+            }
+            .box4{
+                background: #608CCF;
+            }
+            .box5{
+                background: #A15FEB;
+            }
+            .box6{
+                background: #EB5F84;
+            }
+            .name{
+                font-size:28px;
+                color:rgba(28,31,42,1);
+            }
+        }
+    }
+    .myBill{
+        margin-top: 96px;
+    }
+}

@@ -1,0 +1,33 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">绩效排行</view>
+</cu-custom>
+<view class="cu-bar bg-white light solid-bottom">
+  <view class="action justify-around">
+    <button class="cu-btn round {{statusKey==0?'bg-mauve':'line-mauve'}}  shadow sm margin-lr-xs" bindtap="selectStatus" data-target="0">
+      评分
+    </button>
+    <button class="cu-btn round {{statusKey==7?'bg-mauve':'line-mauve'}}  shadow sm margin-lr-xs"  bindtap="selectStatus" data-target="7">
+      销量
+    </button>
+  </view>
+</view>
+<view class="index_container solid-bottom">
+  <tab-cycle id="tab-cycle-call-statistics" cur_tab_id="{{cycleId}}" bindtabclick="onClickTabCycle" />
+  <calendar dateType="{{'day'}}" wx:if="{{cycleId =='day'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'weeks'}}" wx:if="{{cycleId =='weeks'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'month'}}" wx:if="{{cycleId =='month'}}" bindonCallbackDate="onCallbackDate" />
+  <calendar dateType="{{'quarter'}}" wx:if="{{cycleId ==='quarter'}}" bindonCallbackDate="onCallbackDate" />
+</view>
+
+<view class="cu-list menu margin-top-sm">
+  <view class="cu-item grid col-3 solid-bottom text-center" wx:for="{{achievementList}}" wx:key>
+    <view class="{{item.color}}">{{item.rank}}</view>
+    <view class="{{item.color}}">
+     <text>{{item.merchantUserName}} </text>
+      <text class="cuIcon-selectionfill {{item.color}}" wx:if="{{item.rank<4}}"> </text>
+    </view>
+    <view class="{{item.color!=''?item.color:text-grey}}">{{item.value}}</view>
+  </view>
+  <view></view>
+</view>

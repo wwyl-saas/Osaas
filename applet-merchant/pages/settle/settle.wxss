@@ -1,0 +1,71 @@
+/* pages/component/nav/nav.wxss */
+
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+
+.VerticalBox {
+  display: flex;
+}
+
+.VerticalMain {
+  background-color: #f1f1f1;
+}
+
+.btn-box {
+  width: 150rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-box .op {
+  opacity: 0;
+  line-height: 50rpx;
+}
+
+.cu-tag:empty:not([class*="cuIcon-"]) {
+  padding: 0rpx;
+  width: 16rpx;
+  height: 16rpx;
+  line-height: 16rpx;
+  margin: 0 auto;
+}
+
+.cu-tag[class*="cuIcon-"] {
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  margin: 0 auto;
+  top: 0rpx;
+  right: 0rpx;
+}

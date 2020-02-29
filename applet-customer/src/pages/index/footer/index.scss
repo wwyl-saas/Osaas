@@ -1,0 +1,142 @@
+.index-footer{
+    width: 750px;
+    font-family:PingFang-SC-Regular;
+    .footer-img{
+        width: 100%;
+        height: 344px;
+    }
+    .footer-card{
+        width:689px;
+        margin: -80px auto 40px;
+        background:rgba(255,255,255,1);
+        box-shadow:1px 2px 5px rgba(190, 190, 190, 0.98);
+        border-radius:10px;
+        position: relative;
+        // top: -80px;
+        .title{
+            width:622px;
+            margin: 0 auto;
+            padding: 44px 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 36px;
+            font-family: PingFang-SC-Bold;
+            font-weight:bold;
+            border-bottom: 4px solid rgba(142,154,165,1);
+        }
+        .info{
+            width:569px;
+            font-size:26px;
+            font-family:PingFangSC-Thin;
+            color:rgba(94,94,94,1);
+            line-height:42px;
+            margin: 32px auto;
+            text-indent: 52px;
+        }
+        .time{
+            width:569px;
+            margin: 0 auto 44px;
+            font-size:26px;
+            font-family:PingFang-SC-Thin;
+            font-weight:bold;
+            color:rgba(94,94,94,1);
+            line-height:42px;
+            .time-text{
+                margin-left: 20px;
+            }
+        }
+        .btn-box{
+            padding: 25px 0 55px;
+            box-sizing: border-box;
+            .btn{
+                box-shadow:1px 2px 5px rgba(13, 71, 10, 0.98);
+                width:280px;
+                height:80px;
+                line-height: 80px;
+                background:rgba(100,170,35,1);
+                border-radius:44px;
+                font-size: 30px;
+                font-weight:bold;
+                font-family:PingFang-SC-Regular;
+                color:rgba(255,255,255,1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .wechat{
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .shop-list{
+            width: 100%;
+            .sw-list{
+                width: 100%;
+                height: 340px;
+                padding: 30px 0;
+                box-sizing: border-box;
+                background:#fff;
+                .shop-item{
+                    width: 614px!important;
+                    height: 289px!important;
+                    margin: 15px 58px;
+                    border-radius:20px;
+                    position: relative;
+                    .item-card{
+                        height: 230px;
+                        background:rgba(255,255,255,1);
+                        border: 2px solid rgba(230, 230, 228, 1);
+                        // box-shadow: 0px 1px 1px 0px rgba(237,240,242,0.98);
+                        border-radius:10px;
+                        margin-right: 34px;
+                        box-sizing: border-box;
+                        font-size:26px;
+                        padding: 16px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .top{
+                            color:rgba(94,94,94,1);
+                            display: flex;
+                            justify-content: space-between;
+                            .shop{
+                                border-left: 9px solid #C3BAA2;
+                                padding-left: 20px;
+                                font-size: 26px;
+                            }
+                            .tip{
+                                padding: 5px 20px;
+                                background:rgba(157,144,99,1);
+                                border-radius: 30px;
+                                font-size: 26px;
+                                color: #fff;
+                                box-shadow:1px 2px 5px rgba(95, 70, 16, 0.98);
+                            }
+                        }
+                        .c-msg{
+                            color: #8F9397;
+                            padding-left: 20px;
+                            font-size: 26px;
+                            .msg-icon{
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+                .s-active{
+                    background: #fff;
+                    width: 614px!important;
+                    height: 340px!important;
+                    margin: 0 58px;
+                    .item-card{
+                        height: 260px;
+                        padding: 30px 20px;
+                        box-sizing: border-box;
+                        font-size:30px;
+                    }
+                }
+            }
+        }
+    }
+}

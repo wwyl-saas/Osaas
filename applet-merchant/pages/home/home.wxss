@@ -1,0 +1,11 @@
+.cu-tag.badge {
+  border-radius: 200rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  font-size: 20rpx;
+  padding: 0rpx 10rpx;
+  height: 28rpx;
+  color: var(--white);
+  width: 28rpx;
+}

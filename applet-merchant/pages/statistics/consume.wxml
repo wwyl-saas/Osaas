@@ -1,0 +1,6 @@
+  <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">消费分析</view>
+  </cu-custom>
+
+ <ec-canvas id="ec-canvas"  ec="{{ ec }}" bind:init="echartInit"></ec-canvas>

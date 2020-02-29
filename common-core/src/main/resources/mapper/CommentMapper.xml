@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.Comment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="merchant_user_id" property="merchantUserId" jdbcType="BIGINT" />
+    <result column="merchant_user_name" property="merchantUserName" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="TINYINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="picture_urls" property="pictureUrls" jdbcType="VARCHAR" />
+    <result column="is_anonymous" property="isAnonymous" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, shop_id, order_id, goods_id, merchant_user_id, merchant_user_name, 
+    customer_name, avatar, grade, remark, picture_urls, is_anonymous, create_time
+  </sql>
+
+  <select id="getAverageEvaluate" resultType="com.fate.common.model.StatisticModel" parameterType="java.lang.Long" >
+    select 
+    merchant_user_id as merchantUserId,AVG(grade) as dataValue
+    from t_comment
+    where merchant_id = #{merchantId,jdbcType=BIGINT}
+    GROUP BY merchant_user_id
+  </select>
+
+  <select id="getShopAverageEvaluate" resultType="com.fate.common.model.StatisticModel" parameterType="java.lang.Long" >
+    select
+    shop_id as shopId,merchant_user_id as merchantUserId,AVG(grade) as dataValue
+    from t_comment
+    where merchant_id = #{merchantId,jdbcType=BIGINT}
+    GROUP BY shop_id,merchant_user_id
+  </select>
+</mapper>

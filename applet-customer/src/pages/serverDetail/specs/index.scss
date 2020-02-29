@@ -1,0 +1,48 @@
+.specs{
+    width:750px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+    margin-bottom: 20px;
+    .title{
+        height: 84px;
+        line-height: 84px;
+        padding: 0 27px 0 45px;
+        box-sizing: border-box;
+        border-bottom: 1PX solid #eee;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .line{
+            width:9px;
+            height:27px;
+            background:rgba(157,144,99,1);
+            border-radius:5px;
+        }
+        .title-text{
+            margin-left: 24px;
+            font-size: 28px;
+            font-family: PingFang-SC-Medium;
+            font-weight: bold;
+            color:rgba(28,31,42,1);
+        }
+    }
+    .specs-item{
+        height: 84px;
+        line-height: 84px;
+        margin: 0 40px 0 40px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        .name{
+            font-size:26px;
+            font-family:PingFang-SC-Bold;
+            color:rgba(28,31,42,1);
+        }
+        .value{
+            font-size:24px;
+            font-family:PingFang-SC-Medium;
+            color:rgb(130, 130, 131);
+        }
+    }
+}

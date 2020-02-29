@@ -1,0 +1,34 @@
+.selectClass{
+    width: 750px;
+    min-height: 160px;
+    padding: 1px 0px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    .scrollview{
+        .class-item{
+            display: inline-block;
+            width: 113px;
+            margin-left: 40px;
+            text-align: center;
+            font-family: PingFang-SC-Medium;
+            color:rgba(28,31,42,1);
+            .class-img{
+                display: block;
+                width: 70px;
+                height: 70px;
+                margin: 10px auto 0;
+            }
+            .class-name{
+                font-size:28px;
+            }
+        }
+        .class-item:last-child{
+            margin-right: 40px;
+        }
+        .active{
+            color: #9D9063;
+            border-bottom: 4px solid #9D9063;
+        }
+    }
+
+}

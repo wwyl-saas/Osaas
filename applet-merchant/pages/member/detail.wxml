@@ -1,0 +1,171 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">会员详情</view>
+</cu-custom>
+
+<view class="cu-card dynamic no-card solid-bottom">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{customer.avatar}});">
+          <view class="cu-tag badge {{customer.gender=='女士'?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+        </view>
+        <view class="content flex-sub">
+          <view>{{customer.name}}</view>
+          <view class="text-gray text-sm flex justify-between margin-top-sm">
+            {{customer.nickname}}
+            <view class=''>
+              <text class="cuIcon-vip text-orange margin-right-xs"></text>
+              <text class="text-black">{{customer.memberId}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list margin-top-xs">
+  <view class="cu-item margin-top-xs">
+    <view class="cu-list menu">
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-time text-grey"></text>
+          <text class="text-black">注册时间</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.createTime}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-footprint text-brown"></text>
+          <text class="text-black">最近登录</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.lastLoginTime}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-mobile text-olive"></text>
+          <text class="text-black">联系电话</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.mobile}}</text>
+          <button wx:if="{{customer.mobile}}" class="cu-btn content margin-left-xs" data-phone="{{customer.mobile}}" bindtap="callPhone">
+            <text class="cuIcon-dianhua text-green"></text>
+          </button>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-location text-red"></text>
+          <text class="text-black">所在城市</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.city}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-medal text-orange"></text>
+          <text class="text-black">会员等级</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.memberLevel}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-moneybag text-yellow"></text>
+          <text class="text-black">账户余额</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.balance}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-recharge text-olive"></text>
+          <text class="text-black">累计充值</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.cumulativeRecharge}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-evaluate text-cyan"></text>
+          <text class="text-black">累计消费</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.cumulativeConsume}}</text>
+        </view>
+      </view>
+            <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-refund text-green"></text>
+          <text class="text-black">充值次数</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.chargeNum}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-sponsor text-grey"></text>
+          <text class="text-black">消费次数</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.consumeNum}}</text>
+        </view>
+      </view>
+
+      <view class="cu-item">
+        <view class="content" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-friendfamous text-purple"></text>
+          <text class="text-black">累计积分</text>
+        </view>
+        <view class="action">
+          <text class="text-black text-sm">{{customer.consumeScore}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{source==='normal'}}" class="padding flex flex-direction">
+  <button class="cu-btn block bg-mauve margin-tb-sm lg" bindtap="showModal" data-target="RechargeModal">账户充值</button>
+</view>
+
+<view class="cu-modal {{modalName=='RechargeModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">线下充值</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="cu-form-group">
+        <view class="title">充值金额</view>
+        <input name="rechargeAmount"  placeholder="请输入充值金额"  type='digit' bindinput="inputRechargeAmount" 
+        adjust-position="true" value="{{rechargeAmount}}"></input>
+        <text class="cuIcon-questionfill text-mauve" bindtap="showToastInfo1"></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">惠赠金额</view>
+        <input name="giftAmount" placeholder="请输入惠赠金额"  type='digit' bindinput="inputGiftAmount"
+         adjust-position="true" value="{{giftAmount}}"></input>
+        <text class="cuIcon-questionfill text-mauve" bindtap="showToastInfo2"></text>
+      </view>
+    <view class="cu-form-group cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-mauve text-mauve" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-mauve margin-left" formType="submit">确定</button>
+      </view>
+    </view>
+    </form>
+  </view>
+</view>

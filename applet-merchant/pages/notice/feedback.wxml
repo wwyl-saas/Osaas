@@ -1,0 +1,27 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">反馈</view>
+</cu-custom>
+<view class="bg-white margin radius shadow-lg">
+  <view class="cu-list menu-avatar">
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{feedback.customerAvatar}});"></view>
+      <view class="content flex-sub">
+        <view>
+          <text>{{feedback.customerName}}</text>
+        </view>
+        <view class="text-gray text-sm flex justify-between">
+          <text>{{feedback.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class=" text-content padding">
+    <text> {{feedback.remark}}</text>
+  </view>
+  <view class=" padding-sm">
+    <view class="grid col-3 grid-square">
+      <view wx:for="{{feedback.pictureList}}" wx:key class="bg-img" style="background-image:url({{item}});"></view>
+    </view>
+  </view>
+</view>

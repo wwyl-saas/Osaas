@@ -1,0 +1,51 @@
+.classList{
+    width: 750px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .list-item{
+        width:339px;
+        height:460px;
+        margin: 20px 12px 0;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 2px 1px 0px rgba(237,240,242,0.98);
+        border-radius:10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .img-box{
+            width:336px;
+            height:336px;
+            background:rgba(249,251,250,1);
+            border:1px solid rgba(238, 238, 238, 1);
+            .img{
+                box-shadow:0px 1px 5px rgba(148, 148, 148, 0.98);
+                width:336px;
+                height:336px;
+            }
+        }
+        .name{
+            font-size:26px;
+            font-family:PingFang-SC-Medium;
+            color:rgba(28,31,42,1);
+            padding: 20px 20px 0;
+        }
+        .price{
+            padding: 0 20px 20px;
+            .newprice{
+                font-size:28px;
+                font-family:PingFang-SC-Medium;
+                color:rgba(229,69,69,1);
+                margin-right: 50px;
+            }
+            .oldPrice{
+                font-size:24px;
+                font-family:PingFang-SC-Medium;
+                color: #9B9B9B;
+                text-decoration: line-through;
+            }
+        }
+    }
+}

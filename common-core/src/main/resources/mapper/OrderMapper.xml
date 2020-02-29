@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.Order" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="merchant_app_id" property="merchantAppId" jdbcType="BIGINT" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="merchant_user_id" property="merchantUserId" jdbcType="BIGINT" />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="coupon_id" property="couponId" jdbcType="BIGINT" />
+    <result column="coupon_amount" property="couponAmount" jdbcType="DECIMAL" />
+    <result column="total_num" property="totalNum" jdbcType="INTEGER" />
+    <result column="order_sum_amount" property="orderSumAmount" jdbcType="DECIMAL" />
+    <result column="discount_amount" property="discountAmount" jdbcType="DECIMAL" />
+    <result column="pay_amount" property="payAmount" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="goods_names" property="goodsNames" jdbcType="VARCHAR" />
+    <result column="checker" property="checker" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, shop_id, merchant_app_id, customer_id, merchant_user_id, order_no, 
+    status, coupon_id, coupon_amount, total_num, order_sum_amount, discount_amount, pay_amount, 
+    create_time, update_time, goods_names, checker
+  </sql>
+  <select id="getFactConsumeAmount" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select 
+   COALESCE(SUM(pay_amount),0)
+    from t_order_
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and status in (2,4)
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+  </select>
+
+  <select id="getOrderIdsByShopAndUserAndDate" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select
+    id
+    from t_order_
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and status in (2,4)
+    <if test="shopId != null">
+    and shop_id = #{shopId,jdbcType=BIGINT}
+  </if>
+    <if test="userId != null">
+      and merchant_user_id = #{userId,jdbcType=BIGINT}
+    </if>
+  </select>
+
+  <select id="getOrderCount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+	shop_id as shopId,
+	merchant_user_id as merchantUserId,
+	COUNT(1) as dataValue
+    from t_order_
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    and status in (2,4)
+  </select>
+</mapper>

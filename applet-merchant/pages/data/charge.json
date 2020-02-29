@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas",
+    "tab-cycle": "../../components/tab-cycle/tab-cycle",
+    "calendar": "../../components/calendar/calendar"
+  }
+}

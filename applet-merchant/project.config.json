@@ -1,0 +1,185 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.7",
+	"appid": "wx546948ba95fe71ec",
+	"projectname": "applet-merchant",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录页",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论列表",
+					"pathName": "pages/comment/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约列表",
+					"pathName": "pages/appointment/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "改约",
+					"pathName": "pages/appointment/change",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结算列表",
+					"pathName": "pages/settle/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/settle/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "统计报表",
+					"pathName": "pages/statistics/charts",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工列表",
+					"pathName": "pages/employee/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员列表",
+					"pathName": "pages/member/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结算页",
+					"pathName": "pages/settle/settle",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结算下单",
+					"pathName": "pages/settle/settle",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工管理",
+					"pathName": "pages/employee/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员管理",
+					"pathName": "pages/member/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排行榜",
+					"pathName": "pages/achievement/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "模板消息反馈",
+					"pathName": "pages/notice/feedback",
+					"query": "feedbackId=1183041803973066754",
+					"scene": 1043,
+					"referrerInfo": {
+						"appId": "wx2229b06a20b4b02b"
+					}
+				}
+			]
+		}
+	}
+}

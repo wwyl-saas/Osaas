@@ -1,0 +1,49 @@
+.cardList{
+    font-family:PingFang-SC-Medium;
+    .card{
+        width:692px;
+        margin: 22px auto 0;
+        padding: 26px 0 26px;
+        background:rgb(182, 152, 166);
+        border-radius:8px;
+        font-size:26px;
+        color: #fff;
+        box-shadow: 1px 0 5px rgb(134, 105, 139);
+        .tip{
+            font-weight: bold;
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 40px;
+            box-sizing: border-box;
+            background: rgb(126, 108, 118);
+            position: relative;
+            .arrow-left {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width:0; 
+                height:0; 
+                border-top: 25px solid transparent;
+                border-bottom: 25px solid transparent; 
+                border-right: 18px solid rgb(182, 152, 166);
+            }
+        }
+        .name{
+            font-weight:bold;
+            font-size:32px;
+            margin: 25px 40px 0;
+        }
+        .time{
+            font-size:24px;
+            margin: 22px 40px 0;
+        }
+        .num{
+            font-size:24px;
+            margin: 22px 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    }
+}

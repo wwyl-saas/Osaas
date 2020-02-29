@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+#数据源
+sharding:
+  jdbc:
+    one:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://rm-uf6jn3rti116k64ek7o.mysql.rds.aliyuncs.com:3306/nideshop?useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false
+      username: xxxxxxxxxxx
+      password: xxxxxxxxxx
+      connectionTestQuery: select 1
+
+spring:
+  jpa:
+    show-sql: true
+  hibernate:
+    ddl-auto: update
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 3000ms
+
+
+
+

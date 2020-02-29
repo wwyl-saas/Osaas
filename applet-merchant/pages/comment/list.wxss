@@ -1,0 +1,27 @@
+/* pages/appointment/list.wxss */
+.select-group{
+padding: 1rpx 2rpx;
+display: flex;
+align-items: center;
+min-height: 100rpx;
+}
+
+
+.cu-form-group picker::after {
+content: "";
+}
+
+.nodata{
+  font-size: 200rpx;
+  text-align:center;
+  color: rgba(152, 177, 192, 0.671);
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+}
+
+.nomore{
+  font-size: 50rpx;
+  text-align:center;
+  color: rgba(109, 110, 110, 0.856);
+  padding-top: 20rpx;
+}

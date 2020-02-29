@@ -1,0 +1,197 @@
+.vip{
+    background: #f7f9fb;
+    padding-bottom: 20px;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .v-sp{
+        width: 750px;
+        height: 440px;
+        padding: 50px 0;
+        box-sizing: border-box;
+        background:rgba(253,252,252,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        .s-item{
+            width:614px!important;
+            height:289px!important;
+            margin: 25px 58px;
+            border-radius:20px;
+            position: relative;
+            .item-img{
+                height: 100%;
+                width: 100%;
+                margin: 0 20px;
+            }
+            .card-msg{
+                width: 100%;
+                height: 100%;
+                padding: 30px 50px;
+                box-sizing: border-box;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 99;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 40px;
+                font-family:PingFang-SC-Bold;
+                font-weight:bold;
+                color:rgba(255,255,255,1);
+                .cardTag{
+                    font-family:PingFang-SC-Medium;
+                    font-weight:400;
+                    font-size: 26px;
+                }
+            }
+        }
+        .s-active{
+            background: #fff;
+            width:614px!important;
+            height:339px!important;
+            margin: 0 58px;
+        }
+    }
+    .vipEquity{
+        width: 750px;
+        height: 140px;
+        padding: 0 10px;
+        background: #FDFCFC;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        .e-item{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+            .e-img{
+                width: 50px;
+                height: 50px;
+                margin: 0 auto;
+            }
+            .e-name{
+                height: 70px;
+                font-size:20px;
+                font-weight: normal;
+                color:rgba(157,144,99,1);
+                .name-b{
+                    font-size:48px;
+                }
+            }
+            .name{
+                font-size:26px;
+                color:rgba(28,31,42,1);
+            }
+        }
+    }
+    .gift-bag{
+        width:750px;
+        margin-top: 20px;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        .title{
+            font-size:26px;
+            font-weight: bold;
+            color:rgba(28,31,42,1);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .bag-list{
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            .img-box{
+                width: 274px;
+                height: 160px;
+                margin-bottom: 8px;
+                margin-right: 18px;
+                font-family:PingFang-SC-Medium;
+                position: relative;
+                .bag-img{
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                }
+                .gift{
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    padding: 20px 30px;
+                    box-sizing: border-box;
+                    .name{
+                        padding: 10px 0;
+                        box-sizing: border-box;
+                        font-size: 28px;
+                        color:rgb(148, 141, 46);
+                    }
+                    .tag{
+                        box-sizing: border-box;
+                        font-size: 24px;
+                        color:rgb(148, 141, 46);
+                    }
+                    .vipLogo{
+                        width: 100%;
+                        text-align: right;
+                        font-size: 60px;
+                        line-height: 45px;
+                        font-weight: bolder;
+                        color:rgba(194,132,58,0.8);
+                        opacity:0.28;
+                    }
+                }
+            }
+        }
+    }
+    .vip-content{
+        width:750px;
+        margin-top: 20px;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        .c-item{
+            height: 100px;
+            margin: 0 24px 0 30px;
+            font-size:26px;
+            color:rgba(28,31,42,1);
+            border-bottom: 1PX solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .left{
+                font-weight: 400;
+            }
+            .title{
+                font-weight: bold;
+                .flag{
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 15px;
+                    margin-left: 10px;
+                    background:#9D9063;
+                    border-radius:5px;
+                    font-size:24px;
+                    font-weight: 400;
+                    color:rgba(247,249,251,1);
+                }
+            }
+        }
+    }
+    .vip-btn{
+        width:682px;
+        height:87px;
+        line-height: 87px;
+        text-align: center;
+        margin: 100px auto 30px;
+        background:rgba(35,37,42,1);
+        border-radius:44px;
+        font-size:36px;
+        color:rgba(255,255,255,1);
+    }
+}

@@ -1,0 +1,48 @@
+<view class='bg-white'>
+  <!--显示当前年月日-->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-back text-mauve" bindtap='lastMonth'></text>
+      <text class="padding-lr text-sm">{{title?title:'预约日期'}}</text>
+      <text class="cuIcon-right text-mauve" bindtap='nextMonth'></text>
+      <button class="cu-btn line-mauve sm" bindtap='today'>今日</button>
+    </view>
+    <view class="action">
+      <button class="cu-btn line-mauve sm" bindtap='toggleType'>
+        <text class="cuIcon-full"></text>
+      </button>
+    </view>
+  </view>
+
+  <!-- ============滚动展示============  -->
+  <view hidden="{{ toggleType == 'large' }}">
+    <scroll-view scroll-left="{{scrollLeft}}" scroll-x scroll-with-animation class="calendar-x">
+      <view class='grid' wx:for='{{thisMonthDays}}' wx:key='{{indx}}'>
+        <view class='self' wx:if="{{ true === item.appointment }}"></view>
+        <view class="wrap {{ select === item.dateString? 'select' :''}}" bindtap='select' data-date='{{item.date}}'>{{item.date}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+<view class="margin-lr-xs bg-white nav" hidden="{{ toggleType == 'mini' }}">
+  <view class="flex text-center text-sm">
+    <view class="cu-item" wx:for="{{weekText}}" wx:key>
+      {{item}}
+    </view>
+  </view>
+</view>
+
+  <view class='calendar calendar-container' hidden="{{ toggleType == 'mini' }}">
+    <!--上个月占位格子-->
+    <view class='grid gray' wx:for='{{empytGridsBefore}}' wx:key='{{item}}'>{{item}}</view>
+    <!--当月格子-->
+    <view class='grid' wx:for='{{thisMonthDays}}' wx:key='{{indx}}'>
+      <view class='self' wx:if="{{ true === item.appointment }}"></view>
+      <view class="wrap {{ select === item.dateString ? 'select' :''}}" bindtap='select' data-date='{{item.date}}'>{{item.date}}</view>
+    </view>
+    <!--下个月占位格子-->
+    <view class='grid gray' wx:for='{{empytGridsAfter}}' wx:key='{{item}}'>{{item}}</view>
+  </view>
+
+
+</view>

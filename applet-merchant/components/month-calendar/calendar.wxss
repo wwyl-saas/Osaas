@@ -1,0 +1,137 @@
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+.nav .cu-item {
+	height: 90rpx;
+	display: inline-block;
+	line-height: 90rpx;
+	margin: 0 8rpx;
+	padding: 0 20rpx;
+}
+
+.calendar {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+/* 标题 */
+
+.calendar-title {
+    line-height: 70rpx;
+    font-size: 30rpx;
+    text-align: left;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.calendar-title .ctrl {
+    display: inline-block;
+    padding: 0 20rpx;
+    background: #ebd4ef;
+    border-radius: 10rpx;
+    color: #9c26b0;
+}
+
+.calendar-title .item {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 50rpx;
+}
+
+.calendar-title .title {
+    min-width: 300rpx;
+    text-align: center;
+}
+
+.calendar-title .today {
+    float: right;
+    margin-top: 10rpx;
+}
+
+/* 日期 */
+
+.calendar-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20rpx 10rpx;
+    box-sizing: border-box;
+}
+
+.calendar-container .grid {
+    display: inline-block;
+    width: 14.28571428571429%;
+    line-height: 70rpx;
+    position: relative;
+    z-index: 1;
+}
+
+.calendar-container .grid .self {
+    position: absolute;
+    top: 12rpx;
+    right: 22rpx;
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background:#e54d42;
+    border: 3rpx solid #fff;
+}
+
+.calendar-container .grid.gray {
+    color: #ccc;
+}
+
+.calendar-container .grid .wrap.select {
+    background:#9c26b0;
+    border-radius: 10rpx;
+    color: #fff;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* 滚动展示 */
+
+.calendar-x {
+    white-space: nowrap;
+    padding: 20rpx 0;
+    height: 110rpx;
+}
+
+.calendar-x .grid {
+    display: inline-block;
+    line-height: 70rpx;
+    position: relative;
+    z-index: 1;
+    width: 70rpx;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10rpx;
+    margin-left: 20rpx;
+}
+.calendar-x .grid:last-child{
+    margin-right: 20rpx;
+}
+
+.calendar-x .grid .self {
+    position: absolute;
+    top: 10rpx;
+    right: 6rpx;
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background: #e54d42;
+    border: 3rpx solid #fff;
+}
+
+.calendar-x .grid.gray {
+    color: #ccc;
+}
+
+.calendar-x .grid .wrap.select {
+    background: #9c26b0;
+    border-radius: 10rpx;
+    color: #fff;
+    margin: 0 auto;
+}

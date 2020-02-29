@@ -1,0 +1,168 @@
+.appointment{
+    background: #F7F9FB;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .input-placeholder{
+      color: #adadad;
+    }
+    .loginModel{
+        color:rgba(255,255,255,0.8);
+        text-align: center;
+        .model {
+          width: 100%;
+          .modelHeader {
+            color: #333;
+            font-size: 32px;
+          }
+          .modelContent {
+            .logo {
+              width: 120px;
+              height: 120px;
+            }
+            .tip {
+              display: inline-block;
+              font-size: 24px;
+              margin-bottom: 20px;
+              color: #333;
+            }
+          }
+          .modelAction {
+            .button {
+              font-size: 26px;
+            }
+          }
+        }
+    }
+    .banner-box{
+        width:750px;
+        height:344px;
+        background: #fff;
+        .img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .c-box{
+        position: relative;
+        top: -50px;
+        .shop{
+            width:691px;
+            height:137px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            background:rgba(255,255,255,1);
+            border-radius:10px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .left{
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              .left-t{
+                  font-size: 26px;
+                  font-weight:bold;
+                  color:rgba(28,31,42,1);
+              }
+              .left-b{
+                font-size: 26px;
+                color:rgba(155,155,155,1);
+              }
+            }
+            .right{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content: center;
+                .right-l{
+                    padding-top: 8px;
+                    .title{
+                        font-size: 26px;
+                        color:rgba(28,31,42,1);
+                    }
+                }
+                .right-r{
+                    border-left: 2px solid #eee;
+                    margin-left: 35px;
+                    padding-left: 49px;
+                    padding-top: 8px;
+                }
+            }
+        }
+        .info{
+            width:691px;
+            height:336px;
+            background:rgba(255,255,255,1);
+            border-radius:10px;
+            padding: 0 30px;
+            box-sizing: border-box;
+            margin: 20px auto 0;
+            .info-item{
+                height: 83px;
+                line-height: 83px;
+                font-size: 26px;
+                color:rgba(28,31,42,1);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .picker{
+                    width: 200px;
+                    text-align: right;
+                    font-size: 26px;
+                    padding-right: 3px;
+                    color:rgba(173,173,173,1);
+                }
+            }
+            .at-input{
+                height: 83px;
+                line-height: 83px;
+                margin: 0;
+                padding: 16px 0;
+                box-sizing: border-box;
+                border: none;
+            }
+            .at-input__title{
+                font-size: 26px;
+                color:rgba(28,31,42,1);
+            }
+            .at-input__input {
+                padding-right: 30px;
+                text-align: right;
+                font-size: 26px;
+                color:rgba(173,173,173,1);
+            }
+        }
+        .styles{
+            width:691px;
+            height:91px;
+            line-height: 91px;
+            background:rgba(255,255,255,1);
+            border-radius:10px;
+            margin: 20px auto 0;
+            padding: 0 30px;
+            box-sizing: border-box;
+            font-size: 26px;
+            color:rgba(28,31,42,1);
+            display: flex;
+            justify-content: space-between;
+            .value{
+                font-size:26px;
+                color:rgba(173,173,173,1);
+            }
+        }
+        .btns{
+            background: none;
+            .btn{
+                width:682px;
+                height:85px;
+                line-height: 85px;
+                margin: 20px auto;
+                background:rgba(157,144,99,1);
+                border-radius:44px;
+                font-size:30px;
+                color:rgba(255,255,255,1);
+            }
+        }
+    }
+}

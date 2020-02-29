@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.StatisticMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.Statistic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="merchant_user_id" property="merchantUserId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="data_value" property="dataValue" jdbcType="DECIMAL" />
+    <result column="data_date" property="dataDate" jdbcType="DATE" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="quarter" property="quarter" jdbcType="TINYINT" />
+    <result column="month" property="month" jdbcType="TINYINT" />
+    <result column="week" property="week" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, shop_id, merchant_user_id, `type`, data_value, data_date, `year`, quarter,
+    `month`, week, create_time
+  </sql>
+
+  <select id="getStatisticSum" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select 
+    COALESCE(SUM(data_value),0)
+    from t_statistic_
+    where merchant_user_id = #{userId,jdbcType=BIGINT}
+    and `type`= #{type,jdbcType=TINYINT}
+  </select>
+
+  <select id="getAverageListBy" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    merchant_user_id, COALESCE(avg(data_value),0) as data_value
+    from t_statistic_
+    where `type` = #{type,jdbcType=TINYINT}
+    and `year`= #{year,jdbcType=INTEGER}
+    <if test="shopId != null">
+      and shop_id= #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="quarter != null">
+      and quarter= #{quarter,jdbcType=TINYINT}
+    </if>
+    <if test="month != null">
+      and `month`= #{month,jdbcType=TINYINT}
+    </if>
+    <if test="week != null">
+      and week= #{week,jdbcType=TINYINT}
+    </if>
+    group by merchant_user_id
+  </select>
+
+
+  <select id="getSumListBy" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    merchant_user_id, COALESCE(SUM(data_value),0) as data_value
+    from t_statistic_
+    where `type` = #{type,jdbcType=TINYINT}
+    and `year`= #{year,jdbcType=INTEGER}
+    <if test="shopId != null">
+      and shop_id= #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="quarter != null">
+      and quarter= #{quarter,jdbcType=TINYINT}
+    </if>
+    <if test="month != null">
+      and `month`= #{month,jdbcType=TINYINT}
+    </if>
+    <if test="week != null">
+      and week= #{week,jdbcType=TINYINT}
+    </if>
+    group by merchant_user_id
+  </select>
+</mapper>

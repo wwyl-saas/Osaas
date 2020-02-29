@@ -1,0 +1,84 @@
+.detailInfo{
+    width: 750px;
+    margin-bottom: 20px;
+    .img-box{
+        width:750px;
+        height:402px;
+        background:rgba(46,53,63,1);
+        .test-h{
+          height:402px;
+          .img{
+            width:750px;
+            height:400px;
+          }
+        }
+    }
+    .info{
+        width:750px;
+        height:305px;
+        padding: 40px 30px 30px;
+        box-sizing: border-box;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .name{
+            text-align: center;
+            .name-text{
+                display: inline-block;
+                height: 40px;
+                line-height: 40px;
+                font-size:32px;
+                font-family:PingFang-SC-Bold;
+                font-weight:bold;
+                color:rgba(36,36,36,1);
+            }
+        }
+        .des{
+            .des-text{
+                display: inline-block;
+                height: 50px;
+                line-height: 25px;
+                font-size:24px;
+                font-family:PingFang-SC-Medium;
+                color:rgb(110, 110, 103);
+                line-height:39px;
+                text-indent: 52px;
+            }
+        }
+        .price-box{
+            margin: 0px 20px;
+            font-size:24px;
+            font-family:PingFang-SC-Bold;
+            color:rgba(155,155,155,1);
+            .price-text{
+                font-size:30px;
+                font-family:PingFang-SC-Bold;
+                color:rgba(229,69,69,1);
+                margin-right: 14px;
+            }
+            .old-text{
+                text-decoration: line-through;
+                margin-left: 24px;
+            }
+        }
+        .label{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .label-item{
+                width:109px;
+                height:37px;
+                line-height: 37px;
+                text-align: center;
+                background: #9D9063;
+                border-radius:5px;
+                font-size:24px;
+                font-family:PingFang-SC-Bold;
+                color:rgba(247,249,251,1);
+                margin-right: 10px;
+            }
+        }
+    }
+}

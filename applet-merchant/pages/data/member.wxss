@@ -1,0 +1,22 @@
+ec-canvas {
+  position: absolute;
+  top: 35%;
+  bottom: 10%;
+  left: 30rpx;
+  right: 30rpx;
+}
+.index_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.nodata{
+  font-size: 200rpx;
+  text-align:center;
+  color: rgba(154, 174, 187, 0.671);
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+}

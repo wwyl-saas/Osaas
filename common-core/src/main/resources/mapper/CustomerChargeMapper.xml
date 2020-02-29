@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.CustomerChargeMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.CustomerCharge" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="merchant_app_id" property="merchantAppId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="merchant_user_id" property="merchantUserId" jdbcType="BIGINT" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="charge_type" property="chargeType" jdbcType="TINYINT" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="gift_amount" property="giftAmount" jdbcType="DECIMAL" />
+    <result column="charge_status" property="chargeStatus" jdbcType="TINYINT" />
+    <result column="operator_id" property="operatorId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, merchant_app_id, shop_id, merchant_user_id, customer_id, charge_type, 
+    amount, gift_amount, charge_status, operator_id, create_time, update_time
+  </sql>
+
+  <select id="getFactCharge" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(amount),0)
+    from t_customer_charge
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null">
+      and merchant_user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    and charge_status =1
+  </select>
+
+  <select id="getTodayGiftCharge" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    COALESCE(SUM(gift_amount),0)
+    from t_customer_charge
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null">
+      and merchant_user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    and charge_status =1
+  </select>
+
+  <select id="getCustomerIdsBy" resultType="java.math.BigDecimal" parameterType="java.util.Map" >
+    select
+    customer_id
+    from t_customer_charge
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and charge_status =1
+  </select>
+
+
+  <select id="getGroupSumByShopId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    merchant_user_id,sum(amount) as amount
+    from t_customer_charge
+    where create_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    <if test="shopId != null">
+      and shop_id = #{shopId,jdbcType=BIGINT}
+    </if>
+    and charge_status =1
+    group by merchant_user_id
+  </select>
+
+
+  <select id="getChargeCount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+    shop_id as shopId,
+    merchant_user_id as merchantUserId,
+    COUNT(1) as dataValue
+    from t_customer_charge
+    where update_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    and charge_status =1
+    group by shop_id,merchant_user_id
+  </select>
+
+  <select id="getChargeAmount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+    shop_id as shopId,
+    merchant_user_id as merchantUserId,
+    (COALESCE(SUM(amount),0)+COALESCE(SUM(gift_amount),0)) as dataValue
+    from t_customer_charge
+    where update_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    and charge_status =1
+    group by shop_id,merchant_user_id
+  </select>
+
+  <select id="getFactChargeAmount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+    shop_id as shopId,
+    merchant_user_id as merchantUserId,
+    COALESCE(SUM(amount),0) as dataValue
+    from t_customer_charge
+    where update_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    and charge_status =1
+    group by shop_id,merchant_user_id
+  </select>
+
+  <select id="getGiftChargeAmount" resultType="com.fate.common.model.StatisticModel" parameterType="java.util.Map" >
+    select
+    shop_id as shopId,
+    merchant_user_id as merchantUserId,
+    COALESCE(SUM(gift_amount),0) as dataValue
+    from t_customer_charge
+    where update_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    and merchant_id = #{merchantId,jdbcType=BIGINT}
+    and charge_status =1
+    group by shop_id,merchant_user_id
+  </select>
+</mapper>

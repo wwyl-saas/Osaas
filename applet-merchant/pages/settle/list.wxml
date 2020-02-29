@@ -1,0 +1,235 @@
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+  <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">结算列表</view>
+  </cu-custom>
+
+  <view class="cu-bar bg-white light solid-bottom">
+    <view class="action">
+      <button class="cu-btn round {{statusKey==0?'bg-mauve':'line-mauve'}} shadow sm margin-lr-xs" bindtap="selectStatus" data-target="0">
+        待付款
+        <view class="cu-tag badge" wx:if="{{waitingPay}}">{{waitingPay}}</view>
+      </button>
+      <button class="cu-btn round {{statusKey==1?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs" bindtap="selectStatus" data-target="2">
+        已支付
+        <view class="cu-tag badge" wx:if="{{payed}}">{{payed}}</view>
+      </button>
+      <button class="cu-btn round {{statusKey==-1?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs" bindtap="selectStatus" data-target="-1">
+        全部
+        <view class="cu-tag badge" wx:if="{{total}}">{{total}}</view>
+      </button>
+    </view>
+    <view class="action">
+      <button class="cu-btn icon df line-white" bindtap="showModal" data-target="DrawerModalR">
+        <text class="cuIcon-filter text-mauve text-bold"></text>
+      </button>
+    </view>
+  </view>
+
+  <Calendar id="Calendar" bind:select="selectDate"></Calendar>
+
+
+  <view class="cu-list">
+    <view class="cu-item solid-bottom margin-top-xs" wx:for="{{orderList}}" wx:key>
+      <view class="cu-list menu">
+        <view class="cu-item" data-target="{{item.id}}" bindtap="showDetail">
+          <view class="content">
+            <text class="text-black text-sm">下单时间：</text>
+            <text class="text-grey text-sm">{{item.createTime}}</text>
+          </view>
+          <view class="action">
+            <text class="text-red text-sm">{{item.status}}</text>
+          </view>
+        </view>
+        <view class="cu-item" data-target="{{item.id}}" bindtap="showDetail">
+          <view class="content padding-tb-sm">
+            <view>
+              <text class="text-black margin-right-xs text-sm">订单编号：</text>
+              <text class="text-grey text-sm">{{item.orderNo}}</text>
+            </view>
+            <view class="text-black margin-top-sm">
+              <text class=" margin-right-xs text-sm">订单内容：</text>
+              <text class="text-grey text-sm">{{item.orderDesc}}</text>
+            </view>
+          </view>
+          <view class="action">
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-black text-bold">实付：</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-bold text-black">{{item.payAmount}}</text>
+          </view>
+        </view>
+        <view class="cu-item" wx:if="{{item.statusCode == 0}}">
+          <view></view>
+          <view class="action">
+            <view class="cu-tag round bg-grey light" bindtap="cancel" data-target="{{item.id}}">取消</view>
+            <view class="cu-tag round bg-mauve light" bindtap="charge" data-target="{{item.id}}">余额扣除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+  <view wx:if="{{loaded && orderList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+    <view wx:if="{{loaded && orderList.length>0 && pageIndex>=totalPage}}" class="iconfont iconmeiyougengduo nomore"></view>
+</scroll-view>
+
+
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-bar bg-white">
+      <view class="action">
+        下单用户
+        <text class="cuIcon-triangledownfill text-mauve padding-left-xs"></text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white search">
+      <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="下单人手机号" confirm-type="search" value="{{cusomerPhone}}" bindinput="inputPhone"></input>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-mauve sm" bindtap="cleanCondition">清除</button>
+        <button class="cu-btn bg-mauve margin-left sm" bindtap="submitCondition">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+  <text class="cuIcon-pullright"></text>
+</view>
+
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+  <view class="cu-list menu card-menu shadow-lg margin-tb-xl">
+
+    <view class="cu-card case no-card">
+      <view class="cu-item margin-top-xs">
+
+        <view class="cu-list menu card-menu">
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black">下单时间：</text>
+              <text class="text-grey text-sm">{{order.createTime}}</text>
+            </view>
+            <view class="action">
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black">订单编号：</text>
+              <text class="text-grey text-sm">{{order.orderNo}}</text>
+            </view>
+            <view class="action">
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black">客户名称：</text>
+              <text class="text-grey text-sm">{{order.customerName}}</text>
+            </view>
+            <view class="action">
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+
+    <view class="cu-card case no-card margin-top-sm solid-bottom">
+      <view class="cu-item margin-top-xs">
+        <view class="cu-list menu card-menu">
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black text-bold">商品信息</text>
+            </view>
+            <view class="action">
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="cu-card case no-card">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item" wx:for="{{order.orderDescList}}" wx:key>
+            <view class="cu-avatar lg" style="background-image:url({{item.briefPicUrl}});"></view>
+            <view class="content flex-sub">
+              <view class="text-grey text-sm ">{{item.name}}</view>
+              <view class="text-grey text-sm flex justify-between">
+                <text class="text-price">{{item.counterPrice}}</text>
+                <view>
+                  <text class="cuIcon-close margin-lr-xs">{{item.goodsNum}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card case no-card margin-top-sm solid-bottom">
+      <view class="cu-item margin-top-xs">
+        <view class="cu-list menu card-menu">
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black text-bold">结算信息</text>
+            </view>
+            <view class="action">
+              <text class="text-red">{{order.status}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card case no-card">
+      <view class="cu-item margin-top-xs">
+        <view class="cu-list menu card-menu">
+          <view class="cu-item">
+            <view class="content flex justify-between">
+              <text class="text-black">商品合计：</text>
+              <text class="text-grey text-price text-sm">{{order.orderSumAmount}}</text>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content flex justify-between">
+              <text class="text-black">优惠券：</text>
+              <view>-
+                <text class="text-grey text-price text-sm">{{order.couponAmount}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content flex justify-between">
+              <text class="text-black">会员折扣：</text>
+              <view>-
+                <text class="text-grey text-price text-sm">{{order.discountAmount}}</text>
+              </view>
+
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content">
+              <text class="text-black text-bold">实付：</text>
+            </view>
+            <view class="action">
+              <text class="text-price text-bold text-black">{{order.payAmount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>

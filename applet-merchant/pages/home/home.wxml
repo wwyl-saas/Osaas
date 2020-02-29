@@ -1,0 +1,91 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png">
+  <view slot="content">优联美业</view>
+</cu-custom>
+<add-tips />
+<official-account wx:if="{{!attention}}"></official-account>
+<scroll-view>
+  <view class="cu-bar bg-white light solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-mauve "></text> 功能列表
+    </view>
+    <view class="action">
+      <view class="" bindtap="showModal" data-target="ShopModal">
+        <text class="cuIcon-locationfill text-red"></text>
+        <text class="text-black margin-right-xs">{{currentShop.name}}</text>
+        <text class="cuIcon-unfold text-grey"></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='ShopModal'?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog">
+      <radio-group class="block" bindchange="shopChange">
+        <view class="cu-list menu text-left">
+          <view class="cu-item" wx:for="{{shopList}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{item.name}}</view>
+              <radio class="round mauve" value="{{item.id}}" checked="{{item.id==currentShop.id}}"></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+
+
+
+  <view class="cu-list grid col-3 no-border shadow">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key="{index}">
+      <navigator class="cuIcon-{{item.icon}} text-{{item.color}}" hover-class="none" url="{{item.url}}" open-type="navigate">
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
+        <text>{{item.name}}</text>
+      </navigator>
+    </view>
+  </view>
+
+
+  <view class="cu-bar bg-white light solid-top solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-mauve "></text> 门店数据
+    </view>
+    <view class="action">
+    </view>
+  </view>
+
+  <view class="grid col-3 padding-top-sm bg-white shadow">
+    <view class="padding-sm" wx:for="{{shopDataList}}" wx:key>
+      <navigator class="flex-sub text-center" hover-class="none" url="{{item.url}}?type={{item.id}}&titleName={{item.name}}" open-type="navigate">
+        <view class=" text-xl padding-tb-sm">
+          <text class="{{item.unit=='元'?'text-price':''}} text-black text-bold">{{item.value}}</text>
+        </view>
+        <view class="padding-bottom-sm">
+          <text class="text-grey">{{item.name}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+<view class="cu-bar bg-white light solid-top solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-mauve "></text> 个人数据
+    </view>
+    <view class="action">
+    </view>
+  </view>
+
+  <view class="grid col-3 padding-top-sm bg-white shadow">
+    <view class="padding-sm" wx:for="{{userDataList}}" wx:key>
+      <navigator class="flex-sub text-center" hover-class="none" url="{{item.url}}?type={{item.id}}&titleName={{item.name}}&user='user'" open-type="navigate">
+        <view class=" text-xl padding-tb-sm">
+          <text class="{{item.unit=='元'?'text-price':''}} text-black text-bold">{{item.value}}</text>
+        </view>
+        <view class="padding-bottom-sm">
+          <text class="text-grey">{{item.name}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

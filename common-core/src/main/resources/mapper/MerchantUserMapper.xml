@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.MerchantUserMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.MerchantUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
+    <result column="profile_url" property="profileUrl" jdbcType="VARCHAR" />
+    <result column="wx_ap_openid" property="wxApOpenid" jdbcType="VARCHAR" />
+    <result column="wx_mp_openid" property="wxMpOpenid" jdbcType="VARCHAR" />
+    <result column="wx_unionid" property="wxUnionid" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="post_title_id" property="postTitleId" jdbcType="BIGINT" />
+    <result column="enabled" property="enabled" jdbcType="BIT" />
+    <result column="if_appointment" property="ifAppointment" jdbcType="BIT" />
+    <result column="user_brief" property="userBrief" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="ping_yin" property="pingYin" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, merchant_id, mobile, name, avatar_url, profile_url, wx_ap_openid, wx_mp_openid, 
+    wx_unionid, password, post_title_id, enabled, if_appointment, user_brief, grade, 
+    create_time, update_time, last_login_time, nickname,ping_yin
+  </sql>
+
+  <select id="getByMobile" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_merchant_user
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getByAppletOpenId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_merchant_user
+    where wx_ap_openid = #{openId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_merchant_user
+    where id = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <update id="updateUser" parameterType="com.fate.common.entity.MerchantUser" >
+    update t_merchant_user
+    <set >
+      <if test="merchantId != null" >
+        merchant_id = #{merchantId,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null" >
+        avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="profileUrl != null" >
+        profile_url = #{profileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wxApOpenid != null" >
+        wx_ap_openid = #{wxApOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxMpOpenid != null" >
+        wx_mp_openid = #{wxMpOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxUnionid != null" >
+        wx_unionid = #{wxUnionid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="postTitleId != null" >
+        post_title_id = #{postTitleId,jdbcType=BIGINT},
+      </if>
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+      <if test="ifAppointment != null" >
+        if_appointment = #{ifAppointment,jdbcType=BIT},
+      </if>
+      <if test="userBrief != null" >
+        user_brief = #{userBrief,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="getPageByShopId" resultType="com.fate.common.entity.MerchantUser">
+    select
+    t.id, t.merchant_id, t.mobile, t.name, t.avatar_url, t.profile_url, t.wx_ap_openid, t.wx_mp_openid,
+    t.wx_unionid, t.password, t.post_title_id, t.enabled, t.if_appointment, t.user_brief, t.grade,
+    t.create_time, t.update_time, t.last_login_time, t.nickname,t.ping_yin,t1.role_type
+    from t_merchant_user t inner join  t_merchant_user_role t1 on t.id=t1.user_id and t.merchant_id=t1.merchant_id
+    <where>
+      <if test="userRole!=null">
+        <if test="userRole.merchantId!=null">
+          and t1.merchant_id=#{userRole.merchantId,jdbcType=BIGINT}
+        </if>
+        <if test="userRole.shopId!=null">
+          and t1.shop_id=#{userRole.shopId,jdbcType=BIGINT}
+        </if>
+      </if>
+    </where>
+    order by t1.role_type
+  </select>
+
+  <select id="getByShopId" resultType="com.fate.common.entity.MerchantUser">
+    select
+    t.id, t.merchant_id, t.mobile, t.name, t.avatar_url, t.profile_url, t.wx_ap_openid, t.wx_mp_openid,
+    t.wx_unionid, t.password, t.post_title_id, t.enabled, t.if_appointment, t.user_brief, t.grade,
+    t.create_time, t.update_time, t.last_login_time, t.nickname,t.ping_yin,t1.role_type
+    from t_merchant_user t inner join  t_merchant_user_role t1 on t.id=t1.user_id and t.merchant_id=t1.merchant_id
+    <where>
+      <if test="merchantId!=null">
+        and t1.merchant_id=#{merchantId,jdbcType=BIGINT}
+      </if>
+      <if test="shopId!=null">
+        and t1.shop_id=#{shopId,jdbcType=BIGINT}
+      </if>
+    </where>
+    order by t1.role_type
+  </select>
+
+  <select id="getByShopIdAndName" resultType="com.fate.common.entity.MerchantUser">
+    select
+    t.id, t.merchant_id, t.mobile, t.name, t.avatar_url, t.profile_url, t.wx_ap_openid, t.wx_mp_openid,
+    t.wx_unionid, t.password, t.post_title_id, t.enabled, t.if_appointment, t.user_brief, t.grade,
+    t.create_time, t.update_time, t.last_login_time, t.nickname,t.ping_yin,t1.role_type
+    from t_merchant_user t inner join  t_merchant_user_role t1 on t.id=t1.user_id and t.merchant_id=t1.merchant_id
+    <where>
+      <if test="merchantId!=null">
+        and t1.merchant_id=#{merchantId,jdbcType=BIGINT}
+      </if>
+      <if test="shopId!=null">
+        and t1.shop_id=#{shopId,jdbcType=BIGINT}
+      </if>
+      <if test="userName!=null">
+        and t.name like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
+      </if>
+    </where>
+    order by t1.role_type
+  </select>
+
+  <select id="getPageByMobileAndName" resultType="com.fate.common.entity.MerchantUser">
+    select
+    t.id, t.merchant_id, t.mobile, t.name, t.avatar_url, t.profile_url, t.wx_ap_openid, t.wx_mp_openid,
+    t.wx_unionid, t.password, t.post_title_id, t.enabled, t.if_appointment, t.user_brief, t.grade,
+    t.create_time, t.update_time, t.last_login_time, t.nickname,t.ping_yin
+    from t_merchant_user t
+    <where>
+
+        <if test="merchantId!=null">
+          and t.merchant_id=#{merchantId,jdbcType=BIGINT}
+        </if>
+       <if test="merchantUserName!=null">
+         and t.name like CONCAT('%',#{merchantUserName,jdbcType=VARCHAR},'%')
+       </if>
+        <if test="mobile!=null">
+        and t.mobile=#{mobile,jdbcType=VARCHAR}
+        </if>
+
+    </where>
+    order by t.create_time
+  </select>
+
+  <select id="getPageByByRoleType" resultType="com.fate.common.entity.MerchantUser">
+    select  tu.id,  tu.mobile, tu.name, tu.avatar_url, tu.wx_ap_openid, tu.wx_mp_openid,
+    tu.wx_unionid, tu.password, tu.post_title_id, tu.enabled, tu.if_appointment, tu.grade,
+    tu.shop_id,tu.role_type,ts.name as shop_name,
+    tu.nickname from (
+    select t.* ,
+    t1.shop_id,t1.role_type from (
+    select user_id,shop_id,role_type  from  t_merchant_user_role
+    <where>
+      <if test="roleType!=null">
+        role_type=#{roleType,jdbcType=BIGINT}
+      </if>
+    </where>
+    )t1
+    left JOIN t_merchant_user t on t1.user_id=t.id )tu
+    left join t_merchant_shop ts on  tu.shop_id=ts.id
+  </select>
+
+  <select id="getIdAndNameByGoodsId" resultType="java.util.Map">
+    select t.id,name from t_merchant_user t where t.id in(
+       select merchant_user_id from t_goods_merchant_user
+        where goods_id =#{goodsId,jdbcType=BIGINT})
+  </select>
+
+
+  <select id="getByUnionId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_merchant_user
+    where wx_unionid = #{unionId,jdbcType=VARCHAR}
+  </select>
+
+
+</mapper>

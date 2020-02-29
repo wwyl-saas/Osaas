@@ -1,0 +1,39 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">员工列表</view>
+</cu-custom>
+
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
+  <navigator class="action text-lg" hover-class="none" url="/pages/employee/add" open-type="navigate">
+      <text class="cuIcon-friendadd text-mauve padding-left"></text>
+  </navigator>
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input maxlength="10" type="text" placeholder="员工姓名" confirm-type="search" bindinput="inputUserName"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-mauve light shadow-blur round"  bindtap="searchUser">搜索</button>
+  </view>
+</view>
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID.indexLetter}}" style="height:calc(100vh - {{CustomBar}}px - 50px)" 
+scroll-with-animation="true" enable-back-to-top="true">
+  <block wx:for="{{list}}" wx:key>
+    <view class="padding indexItem-{{list[index].indexLetter}}" id="indexes-{{list[index].indexLetter}}" data-index="{{list[index].indexLetter}}">{{list[index].indexLetter}}</view>
+    <view class="cu-list menu-avatar no-padding">
+      <navigator class="cu-item" wx:for="{{list[index].userList}}" wx:key wx:for-item="user" wx:for-index="sub" hover-class="none" url="/pages/employee/detail?userId={{user.id}}" open-type="navigate">
+        <view class="cu-avatar round lg" style="background-image:url({{user.profileUrl}});" wx:if="{{user.profileUrl}}"></view>
+         <view class="cu-avatar round lg" wx:else>{{user.pingYin}}</view>
+        <view class="content">
+          <view class="text-grey">{{user.name}}</view>
+          <view class="text-gray text-sm">{{user.roleType}}</view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{list}}" wx:key id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{list[index].indexLetter}}</view>
+  </view>
+</view>

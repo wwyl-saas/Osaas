@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.MerchantPostTitleMapper" >
+    <select id="getPostTitlesByIds" resultType="java.util.Map"  >
+     select t.id,t.name from t_merchant_post_title t
+     WHERE id IN
+     <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+     </foreach>
+  </select>
+
+</mapper>

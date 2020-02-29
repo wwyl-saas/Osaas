@@ -1,0 +1,77 @@
+.payment{
+    background: #F7F9FB;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .lists{
+        .title{
+            background: #fff;
+            padding: 40px 30px 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            font-size:28px;
+            color:rgba(36,36,36,1); 
+           .status{
+                color:rgba(229,69,69,1);
+           }
+        }
+    }
+    .orderInfo{
+        width:750px;
+        height:190px;
+        margin: 20px 0 120px;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .order-item{
+            display: flex;
+            padding: 0 30px;
+            box-sizing: border-box;
+            .name{
+                font-size:26px;
+                color:rgba(28,31,42,1);
+            }
+            .value{
+                font-size:26px;
+                color:rgba(155,155,155,1);
+                padding-left: 19px;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .payment-footer{
+        width:750px;
+        height:97px;
+        background:rgba(236,236,236,1);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        .cancle{
+            height:58px;
+            line-height: 58px;
+            text-align: center;
+            background:rgba(255,255,255,1);
+            border:1px solid rgba(204, 204, 204, 1);
+            border-radius:29px;
+            font-size:26px;
+            color:rgba(177,177,177,1);
+            margin: 0 25px 0 0;
+        }
+        .pay{
+            height:58px;
+            line-height: 58px;
+            background:rgba(157,144,99,1);
+            border-radius:29px;
+            text-align: center;
+            font-size:26px;
+            color:rgba(255,255,255,1);
+            margin: 0 25px 0 0;
+        }
+    }
+}

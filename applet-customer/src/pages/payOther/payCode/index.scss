@@ -1,0 +1,69 @@
+.codeMask{
+    font-family:PingFang-SC-Bold;
+    font-size: 28px;
+    font-weight:bold;
+    .mask{
+        background:rgba(43,39,36,1);
+        opacity:0.71;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+    }
+    .msg{
+        width: 610px;
+        height: 750px;
+        background:rgba(255,255,255,1);
+        position: fixed;
+        top: 160px;
+        left: 70px;
+        z-index: 100;
+        .topLine{
+            width: 100%;
+            height: 24px;
+            background:rgba(195,186,162,1);
+        }
+        .x-code{
+            text-align: center;
+            position: relative;
+            top: -90px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .img-box{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: auto;
+                background: #fff;
+                .code-img{
+                    width: 180px;
+                    height: 180px;
+                    border-radius: 50%;
+                    margin: 10px auto;
+                }
+            }
+            .x-name{
+                color:rgba(117,116,116,1);
+            }
+        }
+        .e-code{
+            text-align: center;
+            position: relative;
+            top: -40px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .code-img{
+                width: 400px;
+                height: 400px;
+                margin: 10px auto;
+            }
+            .e-name{
+                color: #242424;
+            }
+        }
+    }
+}

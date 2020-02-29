@@ -1,0 +1,125 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">订单详情</view>
+</cu-custom>
+
+<view class="cu-card case no-card">
+  <view class="cu-item margin-top-xs">
+
+    <view class="cu-list menu card-menu">
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black">下单时间：</text>
+          <text class="text-grey text-sm">{{order.createTime}}</text>
+        </view>
+        <view class="action">
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black">订单编号：</text>
+          <text class="text-grey text-sm">{{order.orderNo}}</text>
+        </view>
+        <view class="action">
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black">客户名称：</text>
+          <text class="text-grey text-sm">{{order.customerName}}</text>
+        </view>
+        <view class="action">
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>
+
+
+<view class="cu-card case no-card margin-top-sm solid-bottom">
+  <view class="cu-item margin-top-xs">
+    <view class="cu-list menu card-menu">
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black text-bold">商品信息</text>
+        </view>
+        <view class="action">
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-card case no-card">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item" wx:for="{{order.orderDescList}}" wx:key>
+        <view class="cu-avatar lg" style="background-image:url({{item.briefPicUrl}});"></view>
+        <view class="content flex-sub">
+          <view class="text-grey text-sm ">{{item.name}}</view>
+          <view class="text-grey text-sm flex justify-between">
+            <text class="text-price">{{item.counterPrice}}</text>
+            <view>
+              <text class="cuIcon-close margin-lr-xs">{{item.goodsNum}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card case no-card margin-top-sm solid-bottom">
+  <view class="cu-item margin-top-xs">
+    <view class="cu-list menu card-menu">
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black text-bold">结算信息</text>
+        </view>
+        <view class="action">
+          <text class="text-red">{{order.status}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card case no-card">
+  <view class="cu-item margin-top-xs">
+    <view class="cu-list menu card-menu">
+      <view class="cu-item">
+        <view class="content flex justify-between">
+          <text class="text-black">商品合计：</text>
+          <text class="text-grey text-price text-sm">{{order.orderSumAmount}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content flex justify-between">
+          <text class="text-black">优惠券：</text>
+          <view>-
+            <text class="text-grey text-price text-sm">{{order.couponAmount}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content flex justify-between">
+          <text class="text-black">会员折扣：</text>
+          <view>-
+            <text class="text-grey text-price text-sm">{{order.discountAmount}}</text>
+          </view>
+
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="text-black text-bold">实付：</text>
+        </view>
+        <view class="action">
+          <text class="text-price text-bold text-black">{{order.payAmount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev
+  session:
+    store-type: none  #关闭session节省内存
+  application:
+    name: merchant
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 418920855@qq.com
+    password: hyuoibhitwhobjaf
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.display.sendmail: customer
+      mail.display.sendname: Spring Boot Email
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+    #      mail.debug: true
+    default-encoding: UTF-8

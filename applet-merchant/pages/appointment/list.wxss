@@ -1,0 +1,62 @@
+/* pages/appointment/list.wxss */
+.select-group{
+padding: 1rpx 2rpx;
+display: flex;
+align-items: center;
+min-height: 100rpx;
+}
+
+
+.cu-form-group picker::after {
+content: "";
+}
+
+
+.cu-list.menu-avatar>.cu-item .content {
+	position: absolute;
+	left: 146rpx;
+	width: calc(100% - 96rpx - 60rpx - 120rpx - 120rpx);
+	line-height: 1.6em;
+}
+
+.cu-list.menu-avatar>.cu-item .content.flex-sub {
+	width: calc(100% - 96rpx - 60rpx - 20rpx);
+}
+
+.cu-list.menu-avatar>.cu-item .content>view:first-child {
+	font-size: 30rpx;
+	display: flex;
+	align-items: center
+}
+
+.cu-list.menu-avatar>.cu-item .content .cu-tag.sm {
+	display: inline-block;
+	margin-left: 10rpx;
+	height: 28rpx;
+	font-size: 16rpx;
+	line-height: 32rpx
+}
+
+.cu-list.menu-avatar>.cu-item .action {
+	width: 200rpx;
+	text-align: center
+}
+
+.cu-list.menu-avatar>.cu-item .action view+view {
+	margin-top: 10rpx
+}
+
+.nodata{
+  font-size: 200rpx;
+  text-align:center;
+  color: rgba(195, 210, 219, 0.671);
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+}
+
+.nomore{
+  font-size: 50rpx;
+  text-align:center;
+  color: rgba(109, 110, 110, 0.856);
+  padding-top: 20rpx;
+}

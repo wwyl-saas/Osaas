@@ -1,0 +1,22 @@
+<home wx:if="{{PageCur=='home'}}"></home>
+<personal wx:if="{{PageCur=='personal'}}"></personal>
+<view class="cu-bar tabbar bg-white shadow foot" hidden="{{PageCur=='settle'}}">
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/home{{PageCur=='home'?'-active':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='home'?'text-mauve':'text-gray'}}">首页</view>
+  </view>
+
+  <view class="action add-action">
+        <navigator class="cu-btn cuIcon-sponsor bg-orange shadow" hover-class="none" url="/pages/settle/settle" open-type="navigate"></navigator>
+      结算
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="personal">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/personal{{PageCur=='personal'?'-active':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='personal'?'text-mauve':'text-gray'}}">个人</view>
+  </view>
+</view>

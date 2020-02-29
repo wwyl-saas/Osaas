@@ -1,0 +1,72 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">会员列表</view>
+</cu-custom>
+
+<view class="cu-bar bg-white light solid-bottom search">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input placeholder="请输入用户手机号" value="{{query}}" confirm-type="search" 
+     type="number"  maxlength="11" bindinput="inputMobile"></input>
+  </view>
+  <view class="action">
+      <button class="cu-btn bg-mauve light shadow-blur round" bindtap="searchCustomer">搜索</button>
+    <button class="cu-btn icon df line-white" bindtap="showModal" data-target="DrawerModalR">
+      <text class="cuIcon-filter text-mauve text-bold"></text>
+    </button>
+  </view>
+</view>
+
+<view class="cu-list menu menu-avatar" enable-back-to-top="true">
+  <navigator class="cu-item arrow" wx:for="{{memberList}}" wx:key hover-class="none" url="/pages/member/detail?customerId={{item.id}}" open-type="navigate">
+    <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});">
+    <view class="cu-tag badge {{item.gender=='女士'?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+    </view>
+    <view class="content">
+      <view class="text-grey">
+        <text class="text-black">{{item.name?item.name:item.nickname}}</text>
+        <view class="cu-tag round {{item.color}} sm">{{item.memberLevel}}</view>
+      </view>
+      <view wx:if="{{item.mobile}}" class="text-gray text-sm flex">
+        <text class="cuIcon-mobilefill text-green"></text>
+        <text class="text-grey">{{item.mobile}}</text>
+      </view>
+    </view>
+  </navigator>
+    <view wx:if="{{loaded && memberList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+    <view wx:if="{{loaded && memberList.length>0 && pageIndex>=totalPage}}" class="iconfont iconmeiyougengduo nomore"></view>
+</view>
+
+
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        会员等级
+        <text class="cuIcon-triangledownfill text-mauve padding-left-xs"></text>
+      </view>
+    </view>
+     <view class="bg-white grid col-2 padding-xs">
+      <view wx:for="{{memberLevelList}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn sm block {{item.code===memberLevel?'bg-mauve':'line-mauve'}}" bindtap="selectMemberLevel" data-value="{{item.code}}"> {{item.name}}</button>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        会员来源
+        <text class="cuIcon-triangledownfill text-mauve padding-left-xs"></text>
+      </view>
+    </view>
+     <view class="bg-white grid col-2 padding-xs">
+      <view wx:for="{{customerSourceList}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn sm block {{item.code===customerSource?'bg-mauve':'line-mauve'}}" bindtap="selectCustomerSource" data-value="{{item.code}}"> {{item.name}}</button>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-mauve sm" bindtap="cleanCondition">清除</button>
+        <button class="cu-btn bg-mauve margin-left sm" bindtap="submitCondition">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

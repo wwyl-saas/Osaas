@@ -1,0 +1,89 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">通知列表</view>
+</cu-custom>
+
+<scroll-view>
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{1==TabCur?'text-mauve cur':''}}" bindtap="tabSelect" data-id="1">
+        消息
+        <view class="margin-left-xs {{noticeCount>0?'cu-tag':''}} round bg-red sm">{{noticeCount>1?noticeCount:''}}</view>
+      </view>
+      <view class="cu-item flex-sub {{2==TabCur?'text-mauve cur':''}}" bindtap="tabSelect" data-id="2">
+        反馈
+        <view class="margin-left-xs {{feedbackCount>0?'cu-tag':''}} round bg-red sm"></view>
+      </view>
+      <view class="cu-item flex-sub {{3==TabCur?'text-mauve cur':''}}" bindtap="tabSelect" data-id="3">
+        公告
+        <view class="margin-left-xs {{announceCount>0?'cu-tag':''}} round bg-red sm"></view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="cu-list menu-avatar" wx:if="{{1==TabCur}}">
+    <view class="cu-item" wx:for="{{noticeList}}" wx:key bindtap="navigateToMessage" data-target="{{index}}">
+      <view class="cu-avatar radius lg" style="background-image:url({{item.avatar}});">
+        <view wx:if="{{!item.isRead}}" class="cu-tag badge">未读</view>
+      </view>
+      <view class="content">
+        <view class="text-black text-sm">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="text-gray text-sm text-cut">
+          <text> {{item.content}}</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{item.createTime}}</view>
+      </view>
+    </view>
+     <view wx:if="{{loaded1 && noticeList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+     <view wx:if="{{loaded1 && noticeList.length>0}}" class="iconfont iconmeiyougengduo nomore"></view>
+  </view>
+
+  <view class="cu-list menu-avatar" wx:if="{{2==TabCur}}">
+    <view class="cu-item" wx:for="{{feedbackList}}" wx:key bindtap="navigateToFeedback" data-target="{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.customerAvatar}});">
+        <view wx:if="{{!item.isRead}}" class="cu-tag badge">未读</view>
+      </view>
+      <view class="content">
+        <view class="text-black text-sm">
+          <text>{{item.customerName}}</text>
+        </view>
+        <view class="text-gray text-sm text-cut">
+          <text> {{item.remark}}</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{item.createTime}}</view>
+      </view>
+    </view>
+    <view wx:if="{{loaded2 && feedbackList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+    <view wx:if="{{loaded2 && feedbackList.length>0}}" class="iconfont iconmeiyougengduo nomore"></view>
+  </view>
+
+  <view wx:if="{{3==TabCur}}" class="cu-list" >
+    <view wx:for="{{announceList}}" wx:key class="cu-card case no-card" bindtap="navigateToAnnounce" data-target="{{index}}">
+      <view class="cu-item shadow">
+        <view class="image">
+          <image src="{{item.pictureUrl}}" mode="widthFix"></image>
+          <view wx:if="{{item.tag}}" class="cu-tag bg-red">{{item.tag}}</view>
+          <view class="cu-bar bg-shadeBottom">
+            <text class="text-cut">{{item.name}}</text>
+          </view>
+        </view>
+
+        <view class="text-gray text-sm flex justify-between">
+          <view class="padding-sm margin-xs">{{item.createTime}}</view>
+          <view class="padding-sm margin-xs">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.readNum}}</view>
+        </view>
+      </view>
+    </view>
+     <view wx:if="{{loaded3 && announceList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+     <view wx:if="{{loaded3 && announceList.length>0}}" class="iconfont iconmeiyougengduo nomore"></view>
+  </view>
+
+
+</scroll-view>

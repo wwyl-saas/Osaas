@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+  session:
+    store-type: none  #关闭session节省内存
+  application:
+    name: admin
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: ccc@qq.com
+    password: hyu
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.display.sendmail: customer
+      mail.display.sendname: Spring Boot Email
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+    #      mail.debug: true
+    default-encoding: UTF-8

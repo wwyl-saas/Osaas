@@ -1,0 +1,58 @@
+.proList{
+    width:750px;
+    background:rgba(255,255,255,1);
+    padding: 0 30px;
+    box-sizing: border-box;
+    .pro-item{
+        padding: 30px 0;
+        box-sizing: border-box;
+        border-bottom: 1PX solid rgba(238,238,238,1);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        &.last-item{
+            border: none;
+        }
+        .left{
+            width:108px;
+            height:108px;
+            .left-img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .right{
+            flex: 1;
+            padding-left: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .name{
+                font-size:26px;
+                font-family:PingFang-SC-Bold;
+                font-weight:bold;
+                color:rgba(28,31,42,1);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .price{
+                    font-size:26px;
+                }
+            }
+            .des{
+                font-size:24px;
+                font-family:PingFang-SC-Bold;
+                font-weight:bold;
+                color:rgba(155,155,155,1);
+                line-height:42px;
+            }
+            .num{
+                font-size:24px;
+                font-family:PingFang-SC-Bold;
+                font-weight:bold;
+                color:rgba(155,155,155,1);
+            }
+        }
+    }
+}

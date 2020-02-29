@@ -1,0 +1,106 @@
+.evaluate{
+  width:750px;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+  .noData{
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 24px;
+    font-family:PingFang-SC-Bold;
+    color: #666;
+  }
+  .typeBtns{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    .typeBtn{
+      border: 1PX solid #eee;
+      border-radius: 30px;
+      padding: 6px 20px;
+      margin-right: 20px;
+      font-size: 26px;
+      font-weight: 500;
+      color: #1c1f2a;
+    }
+    .active{
+      border-color: #9d9063;
+      color: #9d9063;
+    }
+  }
+  .evaluate-item{
+    padding: 20px 0;
+    border-bottom: 1PX solid #eee;
+    .info-top{
+      padding: 0 30px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .top-left{
+        font-size:26px;
+        font-family:PingFang-SC-Medium;
+        color:rgba(28,31,42,1);
+        display: flex;
+        align-items: center;
+        .avatar{
+          width:72px;
+          height:72px;
+          border-radius:50%;
+          margin-right: 20px;
+      }
+      .left-r{
+          font-size:26px;
+          line-height: 44px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .time {
+            font-size:24px;
+            color:rgba(155,155,155,1);
+          }
+      }
+      }
+      .top-right {
+        font-size: 26px;
+        font-family: PingFang-SC-Medium;
+        color: rgba(155, 155, 155, 1);
+        line-height: 44px;
+        display: flex;
+        align-items: center;
+        .at-rate{
+          margin-right: 10px;
+        }
+      }
+    }
+    .content-box{
+      padding: 20px 40px 0;
+      box-sizing: border-box;
+      font-size:26px;
+      font-family:PingFang-SC-Medium;
+      color:rgb(70, 69, 69);
+      line-height:44px;
+    }
+    .pictureList{
+      padding: 20px 40px 0;
+      box-sizing: border-box;
+      .picture{
+        width: 200px;
+        height: 200px;
+        margin: 0 20px 20px 0;
+      }
+    }
+    .userinfo{
+      font-family:PingFang-SC-Medium;
+      color:rgba(155,155,155,1);
+      font-size: 22px;
+      text-align: end;
+      padding: 5px 40px;
+  }
+  }
+  .hide-item{
+    display: none;
+  }
+}

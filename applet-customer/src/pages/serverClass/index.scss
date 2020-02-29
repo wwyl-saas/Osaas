@@ -1,0 +1,37 @@
+.settlement{
+    background: #F7F9FB;
+    min-height: 100vh;
+    padding-top: 245px;
+    .noData{
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 26px;
+      font-family:PingFang-SC-Medium;
+      color: #666;
+    }
+    .header-search {
+      background: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 750px;
+      z-index: 99;
+      .at-search-bar__input-cnt {
+        height: 40PX;
+        border-radius: 20PX;
+      }
+
+      .at-search-bar__input {
+        height: 40PX !important;
+        padding: 7PX 37PX;
+      }
+      .at-search-bar__placeholder-wrap {
+        height: 40PX;
+      }
+      .at-search-bar__clear {
+        height: 40PX;
+      }
+    }
+}
+

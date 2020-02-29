@@ -1,0 +1,21 @@
+.nodata{
+  font-size: 200rpx;
+  text-align:center;
+  color: rgba(154, 174, 187, 0.671);
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+}
+
+.nomore{
+  font-size: 50rpx;
+  text-align:center;
+  color: rgba(109, 110, 110, 0.856);
+  padding-top: 20rpx;
+}
+
+.cu-tag.sm {
+font-size: 20rpx;
+padding: 0rpx 0rpx;
+height: 32rpx;
+width: 32rpx;
+}

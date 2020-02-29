@@ -1,0 +1,23 @@
+.lable-list{
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    .label-item{
+        height:64px;
+        line-height: 64px;
+        padding: 0 18px;
+        margin: 0 20px 20px 0;
+        background:rgba(255,255,255,1);
+        border:1px solid rgba(204,204,204,1);
+        border-radius:8px;
+        font-size:26px;
+        font-family:PingFang-SC-Medium;
+        color:rgba(155,155,155,1);
+    }
+    .active{
+        border:1px solid #9d9063;
+        color:#9d9063;
+    } 
+}

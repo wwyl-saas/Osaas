@@ -1,0 +1,57 @@
+{
+      "background_pic_url": "http://mmbiz.qpic.cn/mmbiz_jpg/Bl39GIbRIyK1fc5EBhavcjiaa1k8WDibwOlzbqVzA3q4CibyTk9hCISyNVVcKgDWicfRT6NAVm3oMoiaIu2GoauVKow/0",
+      "base_info": {
+        "logo_url": "http://mmbiz.qpic.cn/mmbiz_png/Bl39GIbRIyJ7FxoFcBG0oVIfMB6OWvr83yZwQSxUclz9gnSYax6O3zduGYqfldkib4O9GxfW8EPMaCudOIoM9JA/0",
+        "brand_name": "优联造型",
+        "code_type": "CODE_TYPE_BARCODE",
+        "title": "会员卡",
+        "color": "Color010",
+        "notice": "使用时向服务员出示此券",
+        "service_phone": "17710800540",
+        "description": "会员根据相应等级享有力度折扣",
+        "date_info": {
+          "type": "DATE_TYPE_PERMANENT"
+        },
+        "sku": {
+          "quantity": 50000000
+        },
+        "get_limit": 1,
+        "use_custom_code": false,
+        "can_give_friend": false,
+        "custom_url_name": "小程序",
+        "custom_url_sub_title": "优联造型",
+        "custom_app_brand_user_name": "gh_69a40dcbf18f@app",
+        "custom_app_brand_pass":"pages/index/index",
+        "center_title":"立即预约",
+        "center_app_brand_user_name":"gh_69a40dcbf18f@app",
+        "center_app_brand_pass":"pages/appointment/index",
+        "promotion_url_name": "我的预约",
+        "promotion_app_brand_user_name":"gh_69a40dcbf18f@app",
+        "promotion_app_brand_pass":"pages/myOrder/index",
+        "need_push_on_view": false
+      },
+      "supply_bonus": true,
+      "supply_balance": false,
+      "prerogative": "这是会员卡享有的特权",
+      "custom_field1": {
+        "name_type": "FIELD_NAME_TYPE_LEVEL",
+        "app_brand_user_name": "gh_69a40dcbf18f@app",
+        "app_brand_pass":"pages/vip/index"
+      },
+      "bonus_rule": {
+        "cost_money_unit": 100,
+        "increase_bonus": 1,
+        "max_increase_bonus": 800,
+        "init_increase_bonus": 10,
+        "cost_bonus_unit": 100,
+        "reduce_money": 100,
+        "least_money_to_use_bonus": 1000,
+        "max_reduce_bonus": 1000
+      },
+      "wx_activate":true,
+      "wx_activate_after_submit" : true,
+      "wx_activate_after_submit_url" : "https://qq.com",
+      "activate_app_brand_user_name":"gh_69a40dcbf18f@app",
+      "activate_app_brand_pass":"pages/personalCenter/index",
+      "discount": 10
+    }

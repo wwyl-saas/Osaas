@@ -1,0 +1,88 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">充值详情</view>
+</cu-custom>
+
+
+  <view class="cu-list menu">
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">用户名称：</text>
+        <text class="text-grey text-sm">{{charge.customerName}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">充值类型：</text>
+        <text class="text-grey text-sm">{{charge.chargeType}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">充值金额：</text>
+        <text class="text-grey text-sm">{{charge.amount}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">返赠金额：</text>
+        <text class="text-grey text-sm">{{charge.giftAmount}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">充值状态：</text>
+        <text class="text-grey text-sm">{{charge.chargeStatus}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">充值时间：</text>
+        <text class="text-grey text-sm">{{charge.createTime}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">销售门店：</text>
+        <text class="text-grey text-sm">{{charge.shopName}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">销售人员：</text>
+        <text class="text-grey text-sm">{{charge.merchantUserName}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-black">操作人员：</text>
+        <text class="text-grey text-sm">{{charge.operatorName}}</text>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+
+  </view>

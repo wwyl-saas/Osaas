@@ -1,0 +1,52 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">{{source==='data'?'预约详情':'改约'}}</view>
+</cu-custom>
+
+<form bindsubmit="formSubmit">
+	<input hidden="true" name="appointmentId" value="{{appointment.id}}"></input>
+
+	<view class="cu-form-group">
+		<view class="title">客户名称</view>
+		<input name="appointName" class="text-right" disabled="true" value="{{appointment.appointName}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">预约电话</view>
+		<input  name="appointMobile" class="text-right" disabled="true" value="{{appointment.appointMobile}}"></input>
+	</view>
+  	<view class="cu-form-group">
+		<view class="title">预约项目</view>
+		<picker name="goodsIndex" bindchange="PickerChange" value="{{goodsIndex}}" range="{{goodsNameList}}" bindchange="goodsChange" disabled="{{source=='data'}}">
+			<view class="picker">
+				{{goodsIndex>=0?goodsNameList[goodsIndex]:'到店指定'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">日期选择</view>
+		<picker name ="arriveDate" mode="date" value="{{appointment.arriveDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="dateChange" disabled="{{source=='data'}}"> 
+			<view class="picker">
+				{{appointment.arriveDate}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">时间选择</view>
+		<picker name="arriveTime" mode="time" value="{{appointment.arriveTime}}" start="09:00" end="21:00" bindchange="timeChange" disabled="{{source=='data'}}">
+			<view class="picker">
+				{{appointment.arriveTime}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">预约技师</view>
+		<picker name="userIndex" bindchange="PickerChange" value="{{userIndex}}" range="{{userNameList}}" bindchange="userChange" disabled="{{source=='data'}}">
+			<view class="picker">
+				{{userIndex>=0?userNameList[userIndex]:'到店安排'}}
+			</view>
+		</picker>
+	</view>
+  <view class="padding flex flex-direction" wx:if="{{source!='data'}}">
+    <button class="cu-btn block bg-mauve margin-tb-sm lg" formType="submit">修改</button>
+</view>
+</form>

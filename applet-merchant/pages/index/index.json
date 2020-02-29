@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "home": "/pages/home/home",
+    "settle": "/pages/settle/settle",
+    "personal": "/pages/personal/personal"
+  }
+}

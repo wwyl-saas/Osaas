@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fate.common.mapper.BannerMapper" >
+  <resultMap id="BaseResultMap" type="com.fate.common.entity.Banner" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="banner_position_id" property="bannerPositionId" jdbcType="INTEGER" />
+    <result column="media_type" property="mediaType" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+    <result column="picture_url" property="pictureUrl" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List" >
+    id,merchant_id,banner_position_id,media_type,`name`,link,picture_url,enable,create_time,update_time
+  </sql>
+
+  <select id="findlistAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_banner limit 10000
+  </select>
+</mapper>

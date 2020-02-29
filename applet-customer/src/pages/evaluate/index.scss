@@ -1,0 +1,53 @@
+.evaluate{
+    width: 750px;
+    background: #F7F9FB;
+    min-height: 100vh;
+    .home__wrap{
+        .eva-list{
+            .eva-item{
+                width: 100%;
+                background: #fff;
+                padding: 20px;
+                box-sizing: border-box;
+                margin-bottom: 30px;
+                .product{
+                    margin-bottom: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    .img-box{
+                        width: 120px;
+                        height: 120px;
+                        margin-right: 20px;
+                        background-size: 120px 120px;
+                    }
+                    .pro-info{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        .name{
+                            font-size: 28px;
+                            font-family:PingFang-SC-Bold;
+                            font-weight:bold;
+                            color: #1C1F2A;
+                        }
+                    }
+                }
+                .textarea{
+                    margin-bottom: 20px;
+                }
+                .img-picker{
+                    .at-image-picker__flex-box {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+        .submit-box{
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+    }
+}

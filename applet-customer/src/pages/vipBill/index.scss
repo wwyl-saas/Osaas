@@ -1,0 +1,74 @@
+.vipBill{
+    background: #F7F9FB;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .at-tabs__header{
+        font-size:28px;
+        font-weight:bold;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    .at-tabs__item--active{
+        color: #9D9063;
+    }
+    .at-tabs__item-underline{
+        background-color: #9D9063;
+    }
+    .bill{
+        width: 750px;
+        margin-top: 110px;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        .bill-item{
+            height: 124px;
+            margin: 0 18px 0 36px;
+            font-size:26px;
+            border-bottom: 1PX solid #eee;
+            display: flex;
+            justify-content: space-between;
+            .left{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .l-top{
+                    color:rgba(28,31,42,1);
+                }
+                .l-bottom{
+                    color:rgba(155,155,155,1);
+                    width: 550px;
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                }
+            }
+            .right{
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .r-top{
+                    color:rgba(230,82,82,1);
+                }
+                .r-bottom{
+                    color:rgba(155,155,155,1);
+                }
+                .blue{
+                    color: #33B61A;
+                }
+            }
+        }
+    }
+    .noData{
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 26px;
+        font-family:PingFang-SC-Medium;
+        color: #666;
+    }
+
+}

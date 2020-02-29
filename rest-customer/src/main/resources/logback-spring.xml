@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <contextName>logback</contextName>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="request-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/request.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/request.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 异步输出 -->
+    <appender name="ASYNC-INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <appender-ref ref="file"/>
+    </appender>
+
+    <appender name="ASYNC-REQUEST" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="request-file"/>
+    </appender>
+
+    <!--开发环境日志配置-->
+    <springProfile name="dev">
+        <logger name="request-log" level="INFO">
+            <appender-ref ref="ASYNC-REQUEST"/>
+        </logger>
+
+        <root level="info">
+            <appender-ref ref="stdout"  />
+            <appender-ref ref="ASYNC-INFO"  />
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <logger name="request-log" level="INFO" additivity="false" >
+            <appender-ref ref="ASYNC-REQUEST"/>
+        </logger>
+
+        <root level="info">
+            <appender-ref ref="stdout"  />
+            <appender-ref ref="ASYNC-INFO"  />
+        </root>
+    </springProfile>
+    <springProfile name="online">
+        <logger name="request-log" level="INFO" additivity="false">
+            <appender-ref ref="ASYNC-REQUEST"/>
+        </logger>
+
+        <root level="info">
+            <appender-ref ref="ASYNC-INFO"  />
+        </root>
+    </springProfile>
+</configuration>

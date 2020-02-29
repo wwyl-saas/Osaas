@@ -1,0 +1,211 @@
+<cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+  <view slot="backText">返回</view>
+  <view slot="content">下单结算</view>
+</cu-custom>
+
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav bg-white" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 350rpx)">
+    <view class="cu-item {{index==TabCur?'text-mauve cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 350rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+
+    <view class="padding-left-sm" wx:for="{{list}}" wx:key="{{index}}" id="main-{{index}}">
+
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-mauve'></text>{{item.name}} </view>
+      </view>
+      <view class="cu-list menu-avatar">
+
+        <view class="cu-item" wx:for="{{item.goodsList}}" wx:for-item="goods" wx:for-index="goodsIndex" wx:key="goodsIndex">
+          <view class="cu-avatar radius lg" style="background-image:url({{goods.briefPicUrl}});">
+          </view>
+          <view class="content">
+            <view>
+              <text class="text-cut">{{goods.name}}</text>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-price text-cut">{{goods.counterPrice}}</text>
+            </view>
+          </view>
+          <view class="btn-box">
+            <view class="cu-tag round cuIcon-move bg-mauve light  {{goods.goodsNum>0?'':'op'}}"
+                  bindtap="goodsRemove"
+                  data-index="{{index}}"
+                  data-goods="{{goodsIndex}}">
+            </view>
+            <view class="text-black {{goods.goodsNum>0?'':'op'}}">
+              {{goods.goodsNum || 0}}
+            </view>
+            <view class='cu-tag round cuIcon-add bg-mauve'
+                  bindtap="goodsAdd"
+                  data-index="{{index}}"
+                  data-goods="{{goodsIndex}}">
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+
+<view class="cu-bar bg-white shadow">
+  <view class="content text-left">
+    共
+    <text class="text-red text-bold">{{selectedGoodsNum}}</text> 件商品,合计
+    <text class="text-price text-red text-bold">{{selectedGoodsAmount}}</text>
+  </view>
+</view>
+<view class="cu-bar bg-white tabbar shop foot">
+  <view class="action" bindtap="showModal" data-target="settleInfoModal">
+    <view class="cuIcon-edit text-mauve"></view>
+    下单信息
+  </view>
+  <view class="bg-mauve light submit" bindtap="scanQrCode">会员代付
+    <text class="padding-left-xs cuIcon-scan"></text>
+  </view>
+  <view class="bg-mauve submit" bindtap="scanBarCode">扫码支付
+    <text class="padding-left-xs cuIcon-scan"></text>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='settleInfoModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white solid-bottom justify-end">
+      <view class="content">订单详情</view>
+    </view>
+    <view class="bg-white">
+
+      <view class="cu-list menu-avatar">
+        <view class="cu-item  solid-bottom" wx:for="{{selectedGoodsList}}" wx:key>
+          <view class="cu-avatar lg" style="background-image:url({{item.briefPicUrl}});"></view>
+          <view class="content flex-sub">
+            <view class="text-grey text-sm ">{{item.name}}</view>
+            <view class="text-grey text-sm flex justify-between">
+              <text class="text-price">{{item.counterPrice}}</text>
+              <view>
+                <text class="cuIcon-close margin-lr-xs">{{item.goodsNum}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-list menu">
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-grey">商品合计</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-grey">{{selectedGoodsAmount}}</text>
+          </view>
+        </view>
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-grey">服务技师</text>
+          </view>
+          <view class="action">
+            <picker bindchange="bindUserChange" value="{{userIndex}}" range="{{userNameList}}">
+              <view class="picker">
+                {{userIndex?userNameList[userIndex]:merchantUser.name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-mauve margin-left" bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="cu-modal {{modalName=='settleModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white solid-bottom justify-end">
+      <view class="action" bindtap="hideSettleModal">
+        <text class="{{payStatus===0?'text-gray':'text-green'}}">关闭</text>
+      </view>
+    </view>
+    <view class="bg-white">
+
+      <view class="cu-list menu-avatar">
+        <view class="cu-item  solid-bottom" wx:for="{{selectedGoodsList}}" wx:key>
+          <view class="cu-avatar lg" style="background-image:url({{item.briefPicUrl}});"></view>
+          <view class="content flex-sub">
+            <view class="margin-bottom-sm text-sm">
+              <text class="text-grey">{{item.name}}</text>
+            </view>
+
+            <view class="text-grey flex justify-between text-sm">
+              <text class="text-price">{{item.counterPrice}}</text>
+              <view>
+                <text class="cuIcon-close margin-lr-xs">{{item.goodsNum}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-list menu">
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-grey">商品合计</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-grey">{{selectedGoodsAmount}}</text>
+          </view>
+        </view>
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-grey">卡券减免</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-grey">{{couponAmount}}</text>
+          </view>
+        </view>
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-grey">会员折扣</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-grey">{{discountAmount}}</text>
+          </view>
+        </view>
+        <view class="cu-item solid-bottom">
+          <view class="content text-left">
+            <text class="text-black text-bold">实付</text>
+          </view>
+          <view class="action">
+            <text class="text-price text-red">{{payAmount}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="text-center  text-sl padding-sm">
+        <text wx:if="{{payStatus===0}}" class="cuIcon-loading2 iconfont-spin  text-blue"></text>
+        <view wx:elif="{{payStatus===2}}" class="cuIcon-roundcheckfill text-green"></view>
+        <view wx:else class="cuIcon-roundclosefill text-red"></view>
+      </view>
+      <view class="text-center padding-bottom-sm">
+        <text wx:if="{{payStatus===0}}" class="">等待完成支付</text>
+        <text wx:elif="{{payStatus===1}}" class="">放弃支付</text>
+        <text wx:elif="{{payStatus===2}}" class="">支付成功</text>
+        <text wx:else class="">支付失败</text>
+      </view>
+
+    </view>
+
+
+  </view>
+</view>

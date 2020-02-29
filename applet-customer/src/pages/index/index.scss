@@ -1,0 +1,20 @@
+@import "../../styles/theme.scss";
+
+.index{
+    background: #F7F9FB;
+    min-height: 100vh;
+    .header-more{
+        background: #242424;
+        height: 194px;
+        width: 750px;
+        position: absolute;
+        top: 0;
+        box-shadow: 0px 1px 5px rgb(48, 44, 42);
+    }
+    .support{
+        text-align: center;
+        font-size: 24px;
+        color: #999;
+        padding: 20px 0;
+    }
+}

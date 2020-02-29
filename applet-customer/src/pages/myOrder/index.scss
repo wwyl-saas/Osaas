@@ -1,0 +1,58 @@
+.myOrder{
+    background: #f7f9fb;
+    font-family:PingFang-SC-Medium;
+    min-height: 100vh;
+    .noData{
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 24px;
+      font-family:PingFang-SC-Medium;
+      color: #666;
+    }
+    .order-item{
+        width: 750px;
+        margin-bottom: 23px;
+        padding: 0 25px 0 29px;
+        box-sizing: border-box;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 4px 16px 0px rgba(234,235,240,0.98);
+        .item-line{
+            height: 83px;
+            line-height: 83px;
+            border-bottom: 1PX solid #eee;
+            display: flex;
+            justify-content: space-between;
+            .name{
+                font-size:28px;
+                color:rgba(28,31,42,1);
+            }
+            .value{
+                font-size:26px;
+                color:rgba(155,155,155,1);
+                .phone{
+                    border-left: 1PX solid #CDCBCB;
+                    padding: 0 20px;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .item-last{
+            height: 101px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .btn{
+                width:155px;
+                height:58px;
+                line-height: 58px;
+                background:rgba(255,255,255,1);
+                border:1PX solid rgba(99, 100, 105, 1);
+                border-radius:29px;
+                margin: 0;
+                font-size:28px;
+                color:rgba(79,81,87,1);
+            }
+        }
+    }
+}

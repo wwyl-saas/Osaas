@@ -1,0 +1,119 @@
+.projectList{
+    background: #fff;
+    padding: 20px 0;
+    font-family:PingFang-SC-Medium;
+    .project{
+        width:713px;
+        height:157px;
+        margin: 20px auto 0;
+        padding: 22px;
+        box-sizing: border-box;
+        background:rgba(253,252,252,1);
+        border:2px solid rgba(218, 218, 216, 1);
+        border-radius:5px;
+        display: flex;
+        .img-box{
+            width: 108px;
+            height: 108px;
+            background:rgb(214, 216, 218);
+            border:1px solid rgba(238, 238, 238, 1);
+            .img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .content{
+            padding-left: 20px;
+            box-sizing: border-box;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .name{
+                font-size:26px;
+                color:rgba(28,31,42,1);
+                display: flex;
+                justify-content: space-between;
+                .goodsName{
+                    font-family:PingFang-SC-Medium;
+                    font-size:26px;
+                    color:rgb(32, 35, 44);
+                }
+                .label{
+                    .labelImg{
+                        margin-left: 8px;
+                        padding: 3px 12px;
+                        font-size:20px;
+                        color:rgba(253,252,252,1);
+                        line-height:26px;
+                        background:rgb(219, 42, 42);
+                        border-radius: 8px 0 8px 0;
+                    }
+                    .color1{
+                        background:rgb(119, 117, 4);
+                    }
+                    .color2{
+                        background:rgb(172, 107, 34);
+                    }
+                }
+            }
+            .des{
+                font-size:26px;
+                color:rgba(155,155,155,1);
+                line-height:42px;
+            }
+            .sold{
+                font-size:26px;
+                .price{
+                    color:rgba(229,69,69,1);
+                }
+                .oldPrice{
+                    color:rgba(155,155,155,1);
+                    margin: 0 20px;
+                    text-decoration: line-through;
+                }
+                .soldNum{
+                    font-size:24px;
+                    color:rgba(157,144,99,1);
+                }
+            }
+        }
+    }
+    .top-tip{
+        .img-box{
+            background:rgba(253,252,252,1);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            .img{
+                width: 56px;
+                height: 58px;
+            }
+        }
+        .content{
+            font-weight: bold;
+        }
+    }
+    .gray{
+      background:rgba(0,0,0,0.2);
+      border:2px solid #eee;
+    }
+    .active{
+        border:2px solid rgba(201, 192, 144, 1);
+        position: relative;
+        .triangle_border_nw{
+            width: 0;
+            height: 0;
+            border-bottom: 44px solid #C9C090;
+            border-left: 52px solid transparent;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            .checkIcon{
+                position: relative;
+                left: -30px;
+                bottom: 3px;
+            }
+        }
+    }
+}

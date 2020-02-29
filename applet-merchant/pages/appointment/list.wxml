@@ -1,0 +1,128 @@
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <cu-custom bgImage="http://cdn.wanwuyoulian.com/title-bg.png" isBack="true">
+    <view slot="backText">返回</view>
+    <view slot="content">预约列表</view>
+  </cu-custom>
+
+  <view class="cu-bar bg-white light solid-bottom">
+    <view class="action">
+      <button class="cu-btn round {{statusKey==0?'bg-mauve':'line-mauve'}} shadow sm margin-lr-xs"  bindtap="selectStatus" data-target="0">
+        待确认
+        <view class="cu-tag badge" wx:if="{{waitingConfirm}}">{{waitingConfirm}}</view>
+      </button>
+      <button class="cu-btn round {{statusKey==1?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs"  bindtap="selectStatus" data-target="1">
+        已确认
+        <view class="cu-tag badge" wx:if="{{confirmed}}">{{confirmed}}</view>
+      </button>
+        <button class="cu-btn round {{statusKey==2?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs"  bindtap="selectStatus" data-target="2">
+        已取消
+        <view class="cu-tag badge" wx:if="{{canceled}}">{{canceled}}</view>
+      </button>
+       <button class="cu-btn round {{statusKey==-1?'bg-mauve':'line-mauve'}} shadow sm margin-right-xs" bindtap="selectStatus" data-target="-1">
+        全部状态<view class="cu-tag badge" wx:if="{{total}}">{{total}}</view>
+      </button>
+    </view>
+    <view class="action">
+      <button class="cu-btn icon df line-white" bindtap="showModal" data-target="DrawerModalR">
+        <text class="cuIcon-filter text-mauve text-bold"></text>
+      </button>
+    </view>
+  </view>
+
+  <Calendar id="Calendar" bind:select="selectDate" appointments="{{dateList}}"></Calendar>
+
+
+  <view class="cu-list menu-avatar">
+    <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{appointmentList}}" wx:key="{{index}}" bindtouchstart="ListTouchStart" bindtouchmove="{{(item.status!==2 && item.status!==3)?'ListTouchMove':''}}" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.appointAvatar}});"></view>
+      <view class="content">
+        <view class="text-black">
+          <text class="cuIcon-dianhua text-green padding-lr-sm" data-phone="{{item.appointMobile}}" bindtap="callPhone"></text> {{item.appointName}}
+        </view>
+        <view class="text-sm padding-sm"> {{item.goodsName}}</view>
+      </view>
+      <view class="action">
+        <view class="text-sm text-gray">
+          <text class="cuIcon-friendfavor text-gray"></text>{{item.merchantUserName}}
+        </view>
+        <view class="text-grey text-sm">{{item.arriveDate}}</view>
+        <view class="text-cyan text-sm">
+        <text class="cuIcon-timefill text-cyan"></text>
+        {{item.arriveTimeStart}}-{{item.arriveTimeEnd}}</view>
+      </view>
+      <view class="move">
+        <view class="bg-gray" bindtap="cancel" data-target="{{item.id}}" data-name="{{item.appointName}}">取消</view>
+        <view class="bg-red" bindtap="change" data-target="{{item.id}}" >改约</view>
+        <view wx:if="{{item.status===0}}" class="bg-olive" bindtap="confirm" data-target="{{item.id}}">确认</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{loaded && appointmentList.length===0}}" class="iconfont iconwuneirong3 nodata"></view>
+  <view wx:if="{{loaded && appointmentList.length>0 && pageIndex>=totalPage}}" class="iconfont iconmeiyougengduo nomore"></view>
+</scroll-view>
+
+
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        预约创建时间
+      </view>
+    </view>
+    <view class="select-group justify-center bg-white">
+      <picker mode="date" value="{{createDateStart}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindStartDateChange">
+        <button class="cu-btn round line-mauve shadow sm" wx:if="{{!createDateStart}}">
+          <text class="text-mauve">起始日期</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+        <button class="cu-btn round line-mauve shadow sm" wx:else>
+          <text class="text-mauve">{{createDateStart}}</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+      </picker>
+      <text class="margin-lr-xs">-</text>
+      <picker mode="date" value="{{createDateEnd}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindEndDateChange">
+        <button class="cu-btn round line-mauve shadow sm" wx:if="{{!createDateEnd}}">
+          <text class="text-mauve">结束日期</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+        <button class="cu-btn round line-mauve shadow sm" wx:else>
+          <text class="text-mauve">{{createDateEnd}}</text>
+          <text class="padding-left-xs cuIcon-unfold text-mauve"></text>
+        </button>
+      </picker>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        预约用户
+      </view>
+    </view>
+    <view class="cu-bar bg-white search">
+      <view class="search-form round text-sm">
+        <text class="cuIcon-search"></text>
+        <input type="number" placeholder="预约人手机号" confirm-type="search" value="{{appointmentPhone}}" bindinput="inputAppointmentPhone"></input>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-mauve sm" bindtap="cleanCondition">清除</button>
+        <button class="cu-btn bg-mauve margin-left sm" bindtap="submitCondition">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='DeleteModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="padding-xl">
+      您要删除客户{{cancelAppointmentName}}的预约吗？
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-mauve" bindtap="cancleCancel">取消</button>
+        <button class="cu-btn bg-mauve margin-left" bindtap="cancelConfirm">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+server:
+  port: 8082
+  domain: https://test-a.wanwuyoulian.com
+#数据源
+sharding:
+  jdbc:
+    one:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://cdb-hhkbssqo.bj.tencentcdb.com:10138/fate?useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false
+      username: xx
+      password: xxxx
+      connectionTestQuery: select 1
+
+spring:
+  redis:
+    host: xxxxx
+    port: 6379
+    password: xxxx
+    timeout: 10000ms
+    database: 0
+  rabbitmq:
+    addresses: xxxx
+    username: xxx
+    password: xxxxx
+    virtual-host: /
+    connection-timeout: 15000s
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 2
+        max-concurrency: 12
+    publisher-confirms: true
+    publisher-returns: true #return 的时候代表消息不可达，设置 broker 不自动删除该消息，
+    template:
+      mandatory: true
+
+#企业服务号
+wx:
+  public:
+    appId: xxxxxxxx
+    secret: xxxxxxxxxxxxxxxx
+  open:
+    componentAppId: "xxx"
+    componentSecret: "xxxxxxx"
+    componentToken: "xxxxxxxxxx"
+    componentAesKey: "xxxxxxxxxxxxxxx"
+
+cdn:
+  domain: http://cdn.wanwuyoulian.com/
